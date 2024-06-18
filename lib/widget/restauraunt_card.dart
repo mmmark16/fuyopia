@@ -14,8 +14,8 @@ class RestaurantCard extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          Positioned(
-            left: 124,
+          Align(
+            alignment: Alignment.topRight,
             child: Container(
               width: 36,
               height: 36,
@@ -26,30 +26,30 @@ class RestaurantCard extends StatelessWidget {
               child: Icon(Icons.favorite_border, color: Color.fromRGBO(0, 32, 96, 1),),
             ),
           ),
-          Positioned(
-            top: 16,
-            left: 20,
+          Padding(
+            padding: const EdgeInsets.only(top: 14),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text(
-                  'Ресторан 1',
-                  style: TextStyle(color: Colors.white),
+                Padding(
+                  padding: const EdgeInsets.only(left: 14.0),
+                  child: Text(
+                    'Ресторан 1',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
-                Text(
-                  'часы работ',
-                  style: TextStyle(color: Colors.white),
+                Padding(
+                  padding: const EdgeInsets.only(left: 14.0),
+                  child: Text(
+                    'часы работ',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
+                Image.asset('assets/restaurant_image.png')
               ],
             ),
           ),
-          Positioned(
-              left: 2,
-              top: 36,
-              child: Container(
-                  width: 156,
-                  height: 156,
-                  child:
-                  Image.asset('assets/restaurant_image.png')))
         ],
       ),
     );

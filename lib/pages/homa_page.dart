@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fuyopia/pages/bottom_navigator_bar_page/main_page.dart';
+import 'package:fuyopia/pages/restaurant_page.dart';
 
 import 'bottom_navigator_bar_page/favorite_page.dart';
 
@@ -16,7 +17,7 @@ class _MyHomePageState extends State<MyHomePage> {
   static const List<Widget> _widgetOptions = <Widget>[
     MainPage(),
     FavoritePage(),
-    MainPage(),
+    ReastaurantPage(),
     MainPage(),
     MainPage(),
   ];
