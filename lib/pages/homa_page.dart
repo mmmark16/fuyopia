@@ -3,9 +3,12 @@ import 'package:fuyopia/pages/bottom_navigator_bar_page/main_page.dart';
 import 'package:fuyopia/pages/restaurant_page.dart';
 
 import 'bottom_navigator_bar_page/favorite_page.dart';
+import 'bottom_navigator_bar_page/menu_page.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key,});
+  MyHomePage({super.key, /*required selectedIndex*/});
+
+  //int selectedIndex = 0;
 
 
   @override
@@ -17,9 +20,9 @@ class _MyHomePageState extends State<MyHomePage> {
   static const List<Widget> _widgetOptions = <Widget>[
     MainPage(),
     FavoritePage(),
+    MenuPage(),
+    MainPage(),
     ReastaurantPage(),
-    MainPage(),
-    MainPage(),
   ];
 
   void _onItemTapped(int index) {
