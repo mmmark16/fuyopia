@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../widget/food_card.dart';
+import '../../widget/sushi_card.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -9,6 +11,8 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
+  bool isSushi = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,69 +95,147 @@ class _MenuPageState extends State<MenuPage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 32.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Горячее',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      'Десерт',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      'Напитки',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      'Закуски',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ],
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          isSushi = false;
+                          setState(() {});
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 16.0),
+                          child: Text(
+                            'Горячее',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 16.0),
+                        child: Text(
+                          'Десерт',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 16.0),
+                        child: Text(
+                          'Напитки',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 16.0),
+                        child: Text(
+                          'Закуски',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          isSushi = true;
+                          setState(() {});
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 16.0),
+                          child: Text(
+                            'Суши',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 22.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    FoodCard(
-                      photoPath: 'assets/salad.png',
-                    ),
-                    FoodCard(
-                      photoPath: 'assets/chicken.png',
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 22.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    FoodCard(
-                      photoPath: 'assets/fish.png',
-                    ),
-                    FoodCard(
-                      photoPath: 'assets/spaghetti.png',
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 22.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    FoodCard(
-                      photoPath: 'assets/sushi.png',
-                    ),
-                    FoodCard(
-                      photoPath: 'assets/hamburger.png',
-                    ),
-                  ],
-                ),
+              Column(
+                children: !isSushi
+                    ? [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 22.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              FoodCard(
+                                photoPath: 'assets/salad.png',
+                              ),
+                              FoodCard(
+                                photoPath: 'assets/chicken.png',
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 22.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              FoodCard(
+                                photoPath: 'assets/fish.png',
+                              ),
+                              FoodCard(
+                                photoPath: 'assets/spaghetti.png',
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 22.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              FoodCard(
+                                photoPath: 'assets/sushi.png',
+                              ),
+                              FoodCard(
+                                photoPath: 'assets/hamburger.png',
+                              ),
+                            ],
+                          ),
+                        ),
+                      ]
+                    : [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 16),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SushiCard(),
+                              SushiCard(),
+
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 16),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SushiCard(),
+                              SushiCard(),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 16),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SushiCard(),
+                              SushiCard(),
+                            ],
+                          ),
+                        ),
+
+                      ],
               ),
             ],
           ),

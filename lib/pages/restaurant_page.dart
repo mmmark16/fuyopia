@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fuyopia/pages/homa_page.dart';
+import 'package:fuyopia/pages/home_page.dart';
 
 class ReastaurantPage extends StatefulWidget {
   const ReastaurantPage({super.key});
