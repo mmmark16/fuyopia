@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fuyopia/pages/startPages/startPage.dart';
+import 'package:fuyopia/pages/startPages/start_page.dart';
 import 'package:fuyopia/widget/restauraunt_card.dart';
 
 class MainPage extends StatefulWidget {

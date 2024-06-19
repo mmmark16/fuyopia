@@ -38,6 +38,9 @@ dependencies:
   flutter_svg: ^2.0.10+1
   flutter_native_splash:
   smooth_page_indicator:
+  flutter_animate:
+  flutter_spinkit: ^5.2.1
+  cached_network_image:
 
 dev_dependencies:
   flutter_test:

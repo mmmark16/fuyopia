@@ -16,8 +16,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(0, 32, 96, 1)),
-        useMaterial3: true,
+        fontFamily: 'Montserrat',
+        appBarTheme: const AppBarTheme(
+          scrolledUnderElevation: 0,
+          elevation: 0,
+        ),
       ),
       home:  MyHomePage(/*selectedIndex: 0*/),
     );
