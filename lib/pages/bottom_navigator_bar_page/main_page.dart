@@ -22,11 +22,14 @@ class _MainPageState extends State<MainPage> {
                 ),
                 borderRadius: BorderRadius.all(Radius.circular(20))),
             child: GestureDetector(
-                onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => StartPage()));},
-                child:Icon(
-              Icons.toc,
-              color: Color.fromRGBO(0, 32, 96, 1),
-            )),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => StartPage()));
+                },
+                child: Icon(
+                  Icons.toc,
+                  color: Color.fromRGBO(0, 32, 96, 1),
+                )),
           ),
           actions: [
             Container(
@@ -89,7 +92,6 @@ class _MainPageState extends State<MainPage> {
                   RestaurantCard(),
                 ],
               ),
-
             ],
           ),
         ));

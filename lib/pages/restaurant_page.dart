@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fuyopia/pages/home_page.dart';
+import 'package:fuyopia/pages/photo_user_page.dart';
+import 'package:fuyopia/pages/reviews_page.dart';
 
 class ReastaurantPage extends StatefulWidget {
   const ReastaurantPage({super.key});
@@ -195,89 +197,101 @@ class _ReastaurantPageState extends State<ReastaurantPage> {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 16.0),
-                child: Container(
-                  height: 150,
-                  child: Stack(
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          width: MediaQuery.of(context).size.width / 1.34,
-                          height: 156,
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(24)),
-                              color: Colors.black),
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => PhotoUserPage()));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 16.0),
+                  child: Container(
+                    height: 150,
+                    child: Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            width: MediaQuery.of(context).size.width / 1.34,
+                            height: 156,
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(24)),
+                                color: Colors.black),
+                          ),
                         ),
-                      ),
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Container(
-                          width: MediaQuery.of(context).size.width / 1.2,
-                          height: 56,
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12)),
-                              color: Color.fromRGBO(8, 192, 105, 1)),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 12.0),
-                            child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text("Фото посетителей",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Container(
+                            width: MediaQuery.of(context).size.width / 1.2,
+                            height: 56,
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12)),
+                                color: Color.fromRGBO(8, 192, 105, 1)),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 12.0),
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text("Фото посетителей",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 16.0),
-                child: Container(
-                  height: 150,
-                  child: Stack(
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          width: MediaQuery.of(context).size.width / 1.34,
-                          height: 156,
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(24)),
-                              color: Colors.black),
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ReviewsPage()));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 16.0),
+                  child: Container(
+                    height: 150,
+                    child: Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            width: MediaQuery.of(context).size.width / 1.34,
+                            height: 156,
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(24)),
+                                color: Colors.black),
+                          ),
                         ),
-                      ),
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: Container(
-                          width: MediaQuery.of(context).size.width / 1.2,
-                          height: 56,
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12)),
-                              color: Color.fromRGBO(0, 32, 96, 1)),
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 12.0),
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text("Отзывы",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: Container(
+                            width: MediaQuery.of(context).size.width / 1.2,
+                            height: 56,
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12)),
+                                color: Color.fromRGBO(0, 32, 96, 1)),
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 12.0),
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text("Отзывы",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
