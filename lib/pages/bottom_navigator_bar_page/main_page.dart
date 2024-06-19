@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fuyopia/pages/startPages/startPage.dart';
 import 'package:fuyopia/widget/restauraunt_card.dart';
 
 class MainPage extends StatefulWidget {
@@ -20,10 +21,12 @@ class _MainPageState extends State<MainPage> {
                   width: 2,
                 ),
                 borderRadius: BorderRadius.all(Radius.circular(20))),
-            child: Icon(
+            child: GestureDetector(
+                onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => StartPage()));},
+                child:Icon(
               Icons.toc,
               color: Color.fromRGBO(0, 32, 96, 1),
-            ),
+            )),
           ),
           actions: [
             Container(

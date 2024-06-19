@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:fuyopia/pages/bottom_navigator_bar_page/main_page.dart';
 import 'package:fuyopia/pages/restaurant_page.dart';
 
@@ -24,6 +25,13 @@ class _MyHomePageState extends State<MyHomePage> {
     MainPage(),
     ReastaurantPage(),
   ];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    FlutterNativeSplash.remove();
+    super.initState();
+  }
 
   void _onItemTapped(int index) {
     setState(() {
