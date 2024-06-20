@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:fuyopia/pages/bottom_navigator_bar_page/main_page.dart';
 import 'package:fuyopia/pages/restaurant_page.dart';
-import 'package:fuyopia/pages/test_page.dart';
+import 'package:fuyopia/pages/bottom_navigator_bar_page/sale_page.dart';
 
 import 'bottom_navigator_bar_page/cart_page.dart';
 import 'bottom_navigator_bar_page/favorite_page.dart';

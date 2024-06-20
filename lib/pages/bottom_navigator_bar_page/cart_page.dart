@@ -11,7 +11,7 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  bool isActive = false;
+  bool isActive = true;
   bool isHistory = false;
   bool isCancek = false;
 
