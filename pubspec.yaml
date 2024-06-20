@@ -41,6 +41,7 @@ dependencies:
   flutter_animate:
   flutter_spinkit: ^5.2.1
   cached_network_image:
+  flutter_slidable:
 
 dev_dependencies:
   flutter_test:

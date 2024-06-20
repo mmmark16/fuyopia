@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fuyopia/pages/profile_pages/profile_page.dart';
 import 'package:fuyopia/pages/startPages/start_page.dart';
 import 'package:fuyopia/widget/restauraunt_card.dart';
 
@@ -65,10 +66,13 @@ class _MainPageState extends State<MainPage> {
                 1,
               ),
             ),
-            CircleAvatar(
+            GestureDetector(
+                onTap: (){   Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()));},
+                child:CircleAvatar(
               child: Icon(Icons.person),
               radius: 36,
-            )
+            ))
           ],
         ),
         body: Padding(

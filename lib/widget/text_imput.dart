@@ -10,6 +10,7 @@ class InputField extends StatelessWidget {
   final TextCapitalization textCapitalization;
   final int maxLine;
   final EdgeInsetsGeometry padding;
+  final TextEditingController? controller;
   const InputField({
     super.key,
     this.onChanged,
@@ -21,11 +22,13 @@ class InputField extends StatelessWidget {
     this.textCapitalization = TextCapitalization.none,
     this.maxLine = 1,
     this.padding = const EdgeInsets.symmetric(horizontal: 20),
+    this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       autocorrect: false,
       obscureText: isObscure,
       onChanged: onChanged,
