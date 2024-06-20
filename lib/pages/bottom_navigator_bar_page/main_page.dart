@@ -26,15 +26,15 @@ class _MainPageState extends State<MainPage> {
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20))),
               child: GestureDetector(
-                  onTap: () {
-
-                  },
+                  onTap: () {},
                   child: Icon(
                     Icons.toc,
                     color: Color.fromRGBO(0, 32, 96, 1),
                   )),
             ),
-            SizedBox(width: 10,),
+            SizedBox(
+              width: 10,
+            ),
             Container(
                 width: MediaQuery.of(context).size.width / 2,
                 height: 100,
@@ -51,7 +51,8 @@ class _MainPageState extends State<MainPage> {
                       padding: const EdgeInsets.only(left: 16),
                       child: Text(
                         "Поиск",
-                        style: TextStyle(fontSize: 18, color: Color.fromRGBO(0, 32, 96, 1)),
+                        style: TextStyle(
+                            fontSize: 18, color: Color.fromRGBO(0, 32, 96, 1)),
                       ),
                     ),
                     Icon(
@@ -72,12 +73,14 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
             GestureDetector(
-                onTap: (){   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ProfilePage()));},
-                child:CircleAvatar(
-              child: Icon(Icons.person),
-              radius: 36,
-            ))
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ProfilePage()));
+                },
+                child: CircleAvatar(
+                  child: Icon(Icons.person),
+                  radius: 36,
+                ))
           ],
         ),
         body: Padding(

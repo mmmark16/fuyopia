@@ -7,7 +7,7 @@ import '../../widget/custom_button.dart';
 import '../../widget/text_imput.dart';
 import '../home_page.dart';
 
-  class LoginPage extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
@@ -108,6 +108,7 @@ class LoginButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(defPadding, defPadding * 2, defPadding, 0),
       child: CustomButton(
+
 
         onPressed: (){
           Navigator.pushAndRemoveUntil(

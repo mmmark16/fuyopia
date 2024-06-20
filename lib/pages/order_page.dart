@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fuyopia/pages/reviews_page.dart';
 import 'package:fuyopia/widget/const.dart';
 
 import '../widget/avatar.dart';
 import '../widget/custom_button.dart';
+import 'chat_page2.dart';
 
 class OrderPage extends StatefulWidget {
   const OrderPage({super.key});
@@ -52,7 +54,7 @@ class _OrderPageState extends State<OrderPage> {
                             topRight: Radius.circular(40))),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-crossAxisAlignment: CrossAxisAlignment.stretch,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Center(
                           child: Text('Спасибо за заказ!',
@@ -61,8 +63,8 @@ crossAxisAlignment: CrossAxisAlignment.stretch,
                         ),
                         Center(
                           child: Text('#3030303',
-                              style:
-                                  TTextStyle.t40016.copyWith(color: Colors.grey)),
+                              style: TTextStyle.t40016
+                                  .copyWith(color: Colors.grey)),
                         ),
                         CustomAvatar(
                           backColor: Colors.white,
@@ -77,77 +79,123 @@ crossAxisAlignment: CrossAxisAlignment.stretch,
                         ),
                         Center(
                           child: Text('Адрес ресторана, часы работы',
-                              style:
-                                  TTextStyle.t40016.copyWith(color: Colors.grey)),
+                              style: TTextStyle.t40016
+                                  .copyWith(color: Colors.grey)),
                         ),
-
-                       Container(
-                           width: MediaQuery.of(context).size.width,
-                           child:
-                           Row(
-mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                             crossAxisAlignment: CrossAxisAlignment.center,
-                             children: [
-                          SvgPicture.asset('assets/cardLogo.svg'),
-                        Column(children: [
-                        Text('•••• 2678',style:
-                        TTextStyle.t40016.copyWith(color: Colors.white)),
-                        Text('12.564руб.',style:
-                        TTextStyle.t40016.copyWith(color: Colors.white))
-                                                  ],),
-                          Icon(Icons.access_time,color: TColors.accent,),
-                         Column(children: [
-                                                     Text('Срок',style:
-                                                     TTextStyle.t40016.copyWith(color: Colors.white)),
-                                                     Text('15:38',style:
-                                                     TTextStyle.t40016.copyWith(color: Colors.white))
-                                                   ],),
-
-                        ],)),
-                  Container(
-                      width:  MediaQuery.of(context).size.width,
-                      child:  ListTile(
-                          contentPadding: EdgeInsets.zero,
-                          leading:   Container(
-                            width: 60,
-                            height: 60,
-
-                            child:
-                            Image.asset('assets/friend2.png',)
-                            ,
-                          ),
-                          title: Text("Официант",style: TTextStyle.t60014.copyWith(color: TColors.primary),),
-                          subtitle:Container(
-                              width:  MediaQuery.of(context).size.width/4,
-                              child: Row(children: [Text("Дэвид Гетта",style: TTextStyle.t60014.copyWith(color: TColors.primary)),
-                            Icon(Icons.star, color: TColors.accent,),
-                            Text("5.0",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16,color: TColors.primary),)
-                          ],)),
-                          trailing:   Container(
-                              width:  MediaQuery.of(context).size.width/4,
-                              child:Row(
-                            children: [
-                              Padding(
-                                  padding:EdgeInsets.only(right: 20,bottom: 0),
-                                  child:SvgPicture.asset('assets/chatIcon.svg',)),
-                              Image.asset('assets/table.png',)
-                            ],
-                          )) ,
-
-                        )),
+                        Container(
+                            width: MediaQuery.of(context).size.width,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset('assets/cardLogo.svg'),
+                                Column(
+                                  children: [
+                                    Text('•••• 2678',
+                                        style: TTextStyle.t40016
+                                            .copyWith(color: Colors.white)),
+                                    Text('12.564руб.',
+                                        style: TTextStyle.t40016
+                                            .copyWith(color: Colors.white))
+                                  ],
+                                ),
+                                Icon(
+                                  Icons.access_time,
+                                  color: TColors.accent,
+                                ),
+                                Column(
+                                  children: [
+                                    Text('Срок',
+                                        style: TTextStyle.t40016
+                                            .copyWith(color: Colors.white)),
+                                    Text('15:38',
+                                        style: TTextStyle.t40016
+                                            .copyWith(color: Colors.white))
+                                  ],
+                                ),
+                              ],
+                            )),
+                        Container(
+                            width: MediaQuery.of(context).size.width,
+                            child: ListTile(
+                              contentPadding: EdgeInsets.zero,
+                              leading: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) => ReviewsPage()));
+                                },
+                                child: Container(
+                                  width: 60,
+                                  height: 60,
+                                  child: Image.asset(
+                                    'assets/friend2.png',
+                                  ),
+                                ),
+                              ),
+                              title: Text(
+                                "Официант",
+                                style: TTextStyle.t60014
+                                    .copyWith(color: TColors.primary),
+                              ),
+                              subtitle: Container(
+                                  width: MediaQuery.of(context).size.width / 4,
+                                  child: Row(
+                                    children: [
+                                      Text("Дэвид Гетта",
+                                          style: TTextStyle.t60014.copyWith(
+                                              color: TColors.primary)),
+                                      Icon(
+                                        Icons.star,
+                                        color: TColors.accent,
+                                      ),
+                                      Text(
+                                        "5.0",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                            color: TColors.primary),
+                                      )
+                                    ],
+                                  )),
+                              trailing: Container(
+                                  width: MediaQuery.of(context).size.width / 4,
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                          padding: EdgeInsets.only(
+                                              right: 20, bottom: 0),
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              Navigator.push(context,
+                                                  MaterialPageRoute(builder: (context) => ChatPage2()));
+                                            },
+                                            child: SvgPicture.asset(
+                                              'assets/chatIcon.svg',
+                                            ),
+                                          )),
+                                      Image.asset(
+                                        'assets/table.png',
+                                      )
+                                    ],
+                                  )),
+                            )),
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(defPadding, 20, 0, 20),
+                          padding:
+                              const EdgeInsets.fromLTRB(defPadding, 20, 0, 20),
                           child: CustomButton(
-
-                            onPressed: (){},
+                            onPressed: () {},
                             bgColor: TColors.accent,
                             padding: const EdgeInsets.symmetric(vertical: 14),
                             child: Padding(
-                                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width/5,right:MediaQuery.of(context).size.width/5, ),
-                                child:Text('Готово', style: TTextStyle.t60015.copyWith(color: TColors.primary))),
+                                padding: EdgeInsets.only(
+                                  left: MediaQuery.of(context).size.width / 5,
+                                  right: MediaQuery.of(context).size.width / 5,
+                                ),
+                                child: Text('Готово',
+                                    style: TTextStyle.t60015
+                                        .copyWith(color: TColors.primary))),
                           ),
                         )
-
                       ],
                     ),
                   )

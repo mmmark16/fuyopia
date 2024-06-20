@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'order_page.dart';
+
 class PayForOrder extends StatefulWidget {
   const PayForOrder({super.key});
 
@@ -180,18 +182,24 @@ class _PayForOrderState extends State<PayForOrder> {
                     color: Colors.white,
                   ),
                 ),
-                Container(
-                  width: MediaQuery.of(context).size.width / 1.5,
-                  height: 62,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(24)),
-                      color: Color.fromRGBO(8, 192, 105, 1)),
-                  child: Center(
-                    child: Text('Подтвердить заказ',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold)),
+                GestureDetector(
+                  onTap: (){
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => OrderPage()));
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width / 1.5,
+                    height: 62,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(24)),
+                        color: Color.fromRGBO(8, 192, 105, 1)),
+                    child: Center(
+                      child: Text('Подтвердить заказ',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold)),
+                    ),
                   ),
                 ),
               ],
