@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fuyopia/pages/chat_page2.dart';
 import 'package:fuyopia/pages/order_page_2.dart';
 import 'package:fuyopia/widget/const.dart';
 
@@ -70,8 +71,8 @@ padding: EdgeInsets.only(top: 20, left: 20,right: 20),
                  Row(
                    children: [
                   GestureDetector(
-                      onTap: (){Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => OrderPage2()));},
+                      onTap: (){/*Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => OrderPage2()));*/},
                       child:   Padding(
                          padding:EdgeInsets.only(right: 20,bottom: 20),
                          child:SvgPicture.asset('assets/call.svg'))),
