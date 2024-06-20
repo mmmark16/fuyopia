@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fuyopia/pages/order_page_2.dart';
 import 'package:fuyopia/widget/const.dart';
 
 import '../../widget/avatar.dart';
 import '../../widget/custom_button.dart';
 import '../../widget/text_imput.dart';
+import '../order_page.dart';
 import 'chat_page.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -67,9 +69,12 @@ padding: EdgeInsets.only(top: 20, left: 20,right: 20),
                children: [
                  Row(
                    children: [
-                     Padding(
+                  GestureDetector(
+                      onTap: (){Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => OrderPage2()));},
+                      child:   Padding(
                          padding:EdgeInsets.only(right: 20,bottom: 20),
-                         child:SvgPicture.asset('assets/call.svg')),
+                         child:SvgPicture.asset('assets/call.svg'))),
                     GestureDetector(onTap:(){Navigator.push(context,
                         MaterialPageRoute(builder: (context) => ChatPage()));},child: Padding(
                          padding: EdgeInsets.only(bottom: 20),
