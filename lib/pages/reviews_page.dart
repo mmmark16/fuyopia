@@ -34,16 +34,6 @@ class ReviewsPage extends StatelessWidget {
               "8.5",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
-            Icon(
-              Icons.location_on,
-              size: 36,
-              color: Color.fromRGBO(
-                252,
-                202,
-                126,
-                1,
-              ),
-            ),
             CircleAvatar(
               child: Icon(Icons.person),
               radius: 24,
