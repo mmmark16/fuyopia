@@ -6,6 +6,7 @@ import 'package:fuyopia/widget/const.dart';
 import '../../widget/avatar.dart';
 import '../../widget/custom_button.dart';
 import '../../widget/text_imput.dart';
+import 'chat_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -69,9 +70,10 @@ padding: EdgeInsets.only(top: 20, left: 20,right: 20),
                      Padding(
                          padding:EdgeInsets.only(right: 20,bottom: 20),
                          child:SvgPicture.asset('assets/call.svg')),
-                     Padding(
+                    GestureDetector(onTap:(){Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ChatPage()));},child: Padding(
                          padding: EdgeInsets.only(bottom: 20),
-                         child:SvgPicture.asset('assets/helpChat.svg')),
+                         child:SvgPicture.asset('assets/helpChat.svg'))),
                    ],
                  ),
                  Text("Поддержка", style: TTextStyle.t40014.copyWith(color: TColors.primary),)
