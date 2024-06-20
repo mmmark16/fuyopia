@@ -5,8 +5,9 @@ import 'package:fuyopia/widget/const.dart';
 import '../../widget/avatar.dart';
 import '../../widget/custom_button.dart';
 import '../../widget/text_imput.dart';
+import '../home_page.dart';
 
-class LoginPage extends StatefulWidget {
+  class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
@@ -108,7 +109,13 @@ class LoginButton extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(defPadding, defPadding * 2, defPadding, 0),
       child: CustomButton(
 
-        onPressed: (){},
+        onPressed: (){
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (BuildContext context) => MyHomePage()),
+              ModalRoute.withName('/')
+          );
+        },
         bgColor: TColors.accentLight,
         padding: const EdgeInsets.symmetric(vertical: 14),
         child: Text('Войти', style: TTextStyle.t60015.copyWith(color: TColors.primary)),

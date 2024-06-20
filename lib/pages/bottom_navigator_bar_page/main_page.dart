@@ -15,24 +15,26 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: Container(
-            decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.black,
-                  width: 2,
-                ),
-                borderRadius: BorderRadius.all(Radius.circular(20))),
-            child: GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => StartPage()));
-                },
-                child: Icon(
-                  Icons.toc,
-                  color: Color.fromRGBO(0, 32, 96, 1),
-                )),
-          ),
           actions: [
+            Container(
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 2,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
+              child: GestureDetector(
+                  onTap: () {
+
+                  },
+                  child: Icon(
+                    Icons.toc,
+                    color: Color.fromRGBO(0, 32, 96, 1),
+                  )),
+            ),
+            SizedBox(width: 10,),
             Container(
                 width: MediaQuery.of(context).size.width / 2,
                 height: 100,
@@ -45,9 +47,12 @@ class _MainPageState extends State<MainPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "Поиск",
-                      style: TextStyle(fontSize: 24),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16),
+                      child: Text(
+                        "Поиск",
+                        style: TextStyle(fontSize: 18, color: Color.fromRGBO(0, 32, 96, 1)),
+                      ),
                     ),
                     Icon(
                       Icons.search,
