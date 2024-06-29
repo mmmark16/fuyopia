@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fuyopia/pages/profile_pages/profile_page.dart';
-import 'package:fuyopia/pages/startPages/start_page.dart';
 import 'package:fuyopia/widget/restauraunt_card.dart';
+import '../../widget/const.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -16,21 +17,373 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
         appBar: AppBar(
           actions: [
-            Container(
-              width: 60,
-              height: 60,
-              decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black,
-                    width: 2,
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
-              child: GestureDetector(
-                  onTap: () {},
-                  child: Icon(
-                    Icons.toc,
-                    color: Color.fromRGBO(0, 32, 96, 1),
-                  )),
+            GestureDetector(
+              onTap: () {
+                showModalBottomSheet(
+                    context: context,
+                    backgroundColor: Colors.transparent,
+                    isScrollControlled: true,
+                    useRootNavigator: true,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                      ),
+                    ),
+                    builder: (BuildContext context) {
+                      return Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height -
+                              MediaQuery.of(context).size.height / 15,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(16),
+                                topLeft: Radius.circular(16)),
+                            color: Color.fromRGBO(0, 32, 96, 1),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top: 16),
+                                    child: Container(
+                                      width: 60,
+                                      height: 4,
+                                      decoration: BoxDecoration(
+                                        color: TColors.primary,
+                                        borderRadius: BorderRadius.circular(
+                                            defRadiusOther),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 32, bottom: 16),
+                                    child: Text("Фильтр",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 24,
+                                            color: Colors.white)),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 16),
+                                  child: Text("Категории",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 24,
+                                          color: Colors.white)),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 16),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 16),
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 12, horizontal: 24),
+                                          decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(20)),
+                                              border: Border.all(
+                                                  color: Colors.white,
+                                                  width: 2)),
+                                          child: Text("Завтрак",
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.white)),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 16),
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 12, horizontal: 24),
+                                          decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(20)),
+                                              border: Border.all(
+                                                  color: Colors.white,
+                                                  width: 2)),
+                                          child: Text("Ланч",
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.white)),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 12, horizontal: 24),
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20)),
+                                            border: Border.all(
+                                                color: Colors.white, width: 2)),
+                                        child: Text("Закуски",
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.white)),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 16),
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 12, horizontal: 18),
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20)),
+                                            border: Border.all(
+                                                color: Colors.white, width: 2)),
+                                        child: Text("Напитки",
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.white)),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 16),
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 12, horizontal: 18),
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20)),
+                                            border: Border.all(
+                                                color: Colors.white, width: 2)),
+                                        child: Text("Фаст фуд",
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.white)),
+                                      ),
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.symmetric(
+                                          vertical: 12, horizontal: 24),
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(20)),
+                                          border: Border.all(
+                                              color: Colors.white, width: 2)),
+                                      child: Text("Десерт",
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.white)),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      bottom: 16, top: 36),
+                                  child: Text("Кухня",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 24,
+                                          color: Colors.white)),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 16),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 16),
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 12, horizontal: 24),
+                                          decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(20)),
+                                              border: Border.all(
+                                                  color: Colors.white,
+                                                  width: 2)),
+                                          child: Text("Азия",
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.white)),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 16),
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 12, horizontal: 24),
+                                          decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(20)),
+                                              border: Border.all(
+                                                  color: Colors.white,
+                                                  width: 2)),
+                                          child: Text("Италия",
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.white)),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 12, horizontal: 24),
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20)),
+                                            border: Border.all(
+                                                color: Colors.white, width: 2)),
+                                        child: Text("Мексика",
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.white)),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 16),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 16),
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 12, horizontal: 24),
+                                          decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(20)),
+                                              border: Border.all(
+                                                  color: Colors.white,
+                                                  width: 2)),
+                                          child: Text("Европа",
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.white)),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 16),
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 12, horizontal: 24),
+                                          decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(20)),
+                                              border: Border.all(
+                                                  color: Colors.white,
+                                                  width: 2)),
+                                          child: Text("Япония",
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.white)),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 12, horizontal: 24),
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20)),
+                                            border: Border.all(
+                                                color: Colors.white, width: 2)),
+                                        child: Text("Корея",
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.white)),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 16),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 16),
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 12, horizontal: 24),
+                                          decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(20)),
+                                              border: Border.all(
+                                                  color: Colors.white,
+                                                  width: 2)),
+                                          child: Text("Бургеры",
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.white)),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 16),
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 12, horizontal: 24),
+                                          decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(20)),
+                                              border: Border.all(
+                                                  color: Colors.white,
+                                                  width: 2)),
+                                          child: Text("Суши",
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.white)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 50,
+                                  decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(12)), color: Color.fromRGBO(8, 192, 105, 1)),
+                                  child: Center(
+                                    child: Text("Фильтровать",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color: Colors.white)),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ));
+                    });
+              },
+              child: Container(
+                padding: EdgeInsets.all(16),
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.black,
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                child: Container(
+                    child: SvgPicture.asset(
+                  "assets/filter_icon.svg",
+                )),
+              ),
             ),
             SizedBox(
               width: 10,
@@ -55,10 +408,12 @@ class _MainPageState extends State<MainPage> {
                             fontSize: 18, color: Color.fromRGBO(0, 32, 96, 1)),
                       ),
                     ),
-                    Icon(
-                      Icons.search,
-                      size: 36,
-                      color: Color.fromRGBO(0, 32, 96, 1),
+                    GestureDetector(
+                      child: Icon(
+                        Icons.search,
+                        size: 36,
+                        color: Color.fromRGBO(0, 32, 96, 1),
+                      ),
                     )
                   ],
                 )),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../widget/food_card.dart';
 import '../../widget/sushi_card.dart';
+import '../chef_page.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -37,8 +38,13 @@ class _MenuPageState extends State<MenuPage> {
                 width: 56,
                 height: 56,
                 child: Image.asset('assets/restaurant_image.png')),
-            Container(
-                width: 42, height: 42, child: Image.asset('assets/Chef.png')),
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ChefPage()));
+              },
+              child: Container(
+                  width: 42, height: 42, child: Image.asset('assets/Chef.png')),
+            ),
             CircleAvatar(
               child: Icon(Icons.person),
               radius: 24,

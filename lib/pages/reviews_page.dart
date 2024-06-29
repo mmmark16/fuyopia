@@ -69,12 +69,12 @@ class ReviewsPage extends StatelessWidget {
                     onTap: (){
                       showModalBottomSheet(context: context, builder: (BuildContext context) {
                         return Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(topRight: Radius.circular(16), topLeft: Radius.circular(16)),
                             color: Color.fromRGBO(8, 192, 105, 1),
                           ),
-                          width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height,
                           child: Column(
                             children: [
                               Padding(
