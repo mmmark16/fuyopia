@@ -5,14 +5,14 @@ import 'package:fuyopia/widget/const.dart';
 import '../widget/avatar.dart';
 import '../widget/custom_button.dart';
 
-class OrderPage2 extends StatefulWidget {
-  const OrderPage2({super.key});
+class MapPage extends StatefulWidget {
+  const MapPage({super.key});
 
   @override
-  State<OrderPage2> createState() => _OrderPage2State();
+  State<MapPage> createState() => _MapPageState();
 }
 
-class _OrderPage2State extends State<OrderPage2> {
+class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
