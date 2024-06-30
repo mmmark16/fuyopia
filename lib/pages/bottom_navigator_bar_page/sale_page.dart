@@ -12,6 +12,7 @@ class _TestState extends State {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: Text('Акции и скидки'),
           actions: [
             CircleAvatar(

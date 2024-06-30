@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:fuyopia/pages/home_page.dart';
+import 'package:fuyopia/pages/startPages/start_page.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -16,13 +17,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        fontFamily: 'Montserrat',
+      //  fontFamily: 'Montserrat',
         appBarTheme: const AppBarTheme(
           scrolledUnderElevation: 0,
           elevation: 0,
         ),
       ),
-      home:  MyHomePage(/*selectedIndex: 0*/),
+      home:  StartPage(/*selectedIndex: 0*/),
     );
   }
 }

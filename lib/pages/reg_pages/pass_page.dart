@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fuyopia/pages/home_page.dart';
@@ -13,9 +15,10 @@ class PassPage extends StatefulWidget {
   @override
   State<PassPage> createState() => _PassPageState();
 }
-
+bool _isActive= true;
 bool _page1 = true;
-
+TextEditingController _emailController = TextEditingController();
+TextEditingController _codeController = TextEditingController();
 class _PassPageState extends State<PassPage> {
 
   @override
@@ -24,7 +27,29 @@ class _PassPageState extends State<PassPage> {
     _page1=true;
     super.initState();
   }
+  late Timer _timer;
+  int _start = 30;
 
+  void startTimer() {
+    const oneSec = const Duration(seconds: 1);
+    _isActive=false;
+    _timer = new Timer.periodic(
+      oneSec,
+          (Timer timer) {
+        if (_start == 0) {
+          setState(() {
+            timer.cancel();
+            _isActive=true;
+
+          });
+        } else {
+          setState(() {
+            _start--;
+          });
+        }
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,8 +121,12 @@ class _PassPageState extends State<PassPage> {
                         const SizedBox(height: defPadding),
                         InputField(
                           hint: 'Email',
-                          onChanged: (val) {},
-                          icon: Icon(Icons.check, color: TColors.primary),
+                          controller: _emailController,
+                          onChanged: (val) {_emailController.text=val;
+                            setState(() {
+
+                            });},
+                          icon: Icon(Icons.check, color:_emailController.text!= ""? TColors.primary: Colors.transparent),
                         ),
                         const SizedBox(height: defPadding),
                       ],
@@ -110,9 +139,13 @@ class _PassPageState extends State<PassPage> {
                       children: [
                         const SizedBox(height: defPadding),
                         InputField(
+                          controller: _codeController,
                           hint: 'Введите код из письма',
-                          onChanged: (val) {},
-                          icon: Icon(Icons.check, color: TColors.primary),
+                          onChanged: (val) {_codeController.text=val;
+                            setState(() {
+
+                            });},
+                          icon: Icon(Icons.check, color: _codeController.text!=""?TColors.primary:Colors.transparent),
                         ),
                         const SizedBox(height: defPadding),
                       ],
@@ -124,8 +157,11 @@ class _PassPageState extends State<PassPage> {
                         defPadding, defPadding, defPadding, 0),
                     child: CustomButton(
                       onPressed: () {
-                        _page1 = false;
-                        setState(() {});
+                        if(_emailController.text!=""){
+                          _page1 = false;
+                          startTimer();
+                          setState(() {});
+                        }
                       },
                       bgColor: TColors.accentLight,
                       padding: const EdgeInsets.symmetric(vertical: 14),
@@ -139,10 +175,12 @@ class _PassPageState extends State<PassPage> {
                         defPadding, defPadding, defPadding, 0),
                     child: CustomButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MyHomePage()));
+                        if(_codeController.text!=""){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyHomePage()));
+                        }
                       },
                       bgColor: TColors.accentLight,
                       padding: const EdgeInsets.symmetric(vertical: 14),
@@ -174,7 +212,7 @@ class _PassPageState extends State<PassPage> {
                         Align(
                           alignment: Alignment.center,
                           child: Text(
-                            "30s",
+                            "${_start}s",
                             style: TTextStyle.t40014
                                 .copyWith(color: TColors.primary),
                           ),
@@ -189,8 +227,9 @@ class _PassPageState extends State<PassPage> {
               child: ButtonOnboard(
                 lable: "Повторить",
                 onPressed: () {
+                  if(_isActive) {  _start = 30;startTimer();}
 
-                },
+                      },
               ),
             )
                 : Container()

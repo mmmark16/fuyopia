@@ -19,6 +19,7 @@ class _CartPageState extends State<CartPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         leading: Icon(Icons.arrow_back_ios_new),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

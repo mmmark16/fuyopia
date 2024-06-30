@@ -15,6 +15,8 @@ class SignInPage extends StatefulWidget {
   @override
   State<SignInPage> createState() => _SignInPageState();
 }
+TextEditingController _emailController=TextEditingController();
+TextEditingController _passController=TextEditingController();
 bool isLoading = false;
 class _SignInPageState extends State<SignInPage> {
   @override
@@ -27,7 +29,48 @@ class _SignInPageState extends State<SignInPage> {
           children: [
             const LogoSection(),
             Text('Вход', textAlign: TextAlign.center, style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w400).copyWith(color: Color(0xFFFFFFFF))),
-            const SignInForm(),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+              child: Column(
+                children: [
+                  InputField(
+                    hint: 'email',
+                    controller: _emailController,
+                    onChanged: (val) {
+                      _emailController.text=val;
+                      setState(() {
+
+                      });
+                    },
+                    icon:  Icon(Icons.check, color:_emailController.text!=''? Color(0xFFFFFFFF): Colors.transparent),
+                  ),
+
+                  const SizedBox(height: 20),
+                  InputField(
+                    hint: 'пароль',
+                    controller: _passController,
+                    isObscure: true,
+                    onChanged: (val) {
+                      _passController.text=val;
+                      setState(() {
+
+                      });
+                    },
+                    icon: TextButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context) => PassPage(/*selectedIndex: 0*/)));
+                      },
+                      style: TextButton.styleFrom(
+                        elevation: 0,
+                        padding: const EdgeInsets.only(right: 20, left: 20),
+                      ),
+                      child: Text('Забыл?', style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400).copyWith(color: Color(0xFFFFFFFF))),
+                    ),
+                  ),
+                ],
+              ),
+            ),
             const SignInButton(),
             const SkipSection(),
             const ToSignUpSection(),
@@ -62,43 +105,7 @@ class LogoSection extends StatelessWidget {
   }
 }
 
-class SignInForm extends StatelessWidget {
-  const SignInForm({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-      child: Column(
-        children: [
-        InputField(
-        hint: 'email',
-        onChanged: (val) {},
-        icon:  Icon(Icons.check, color: Color(0xFFFFFFFF)),
-      ),
-
-          const SizedBox(height: 20),
-          InputField(
-            hint: 'пароль',
-            isObscure: true,
-            onChanged: (val) =>{},
-            icon: TextButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => PassPage(/*selectedIndex: 0*/)));
-              },
-              style: TextButton.styleFrom(
-                elevation: 0,
-                padding: const EdgeInsets.only(right: 20, left: 20),
-              ),
-              child: Text('Забыл?', style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400).copyWith(color: Color(0xFFFFFFFF))),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
 
 class SignInButton extends StatelessWidget {
   const SignInButton({super.key});
@@ -108,7 +115,11 @@ class SignInButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 20 * 1.5, 0, 0),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+if ((_emailController.text!='')&(_passController.text!="")){Navigator.push(context, MaterialPageRoute(
+    builder: (context) => MyHomePage()));}
+
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor:Color(0xFF002060),
           padding: const EdgeInsets.all(0),
@@ -181,7 +192,7 @@ class SkipSection extends StatelessWidget {
               /*Navigator.push(context, MaterialPageRoute(
                   builder: (context) => MyHomePage(*//*selectedIndex: 0*//*)));*/
               Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => LoginPage()));
+                  builder: (context) => MyHomePage()));
               },
             style: TextButton.styleFrom(
               minimumSize: Size.zero,

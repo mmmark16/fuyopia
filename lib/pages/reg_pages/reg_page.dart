@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fuyopia/pages/home_page.dart';
 
 import '../../widget/const.dart';
 import '../../widget/custom_button.dart';
@@ -11,6 +12,9 @@ class RegPage extends StatefulWidget {
   State<RegPage> createState() => _RegPageState();
 }
 bool isVisiblePassword = false;
+TextEditingController _emailController=TextEditingController();
+TextEditingController _passController=TextEditingController();
+TextEditingController _nameController=TextEditingController();
 class _RegPageState extends State<RegPage> {
   @override
   Widget build(BuildContext context) {
@@ -29,20 +33,35 @@ body: SingleChildScrollView(
           children: [
             InputField(
               hint: 'Имя',
-              onChanged: (val) {},
-              icon:  Icon(Icons.check, color: TColors.primary),
+              controller: _nameController,
+              onChanged: (val) {
+                _nameController.text=val;
+                setState(() {
+
+                });
+
+              },
+              icon:  Icon(Icons.check, color:   _nameController.text!=""?TColors.primary:Colors.transparent),
             ),
             const SizedBox(height: defPadding),
             InputField(
               hint: 'Email',
-              onChanged: (val) {},
-              icon: Icon(Icons.check, color: TColors.primary),
+              controller: _emailController,
+              onChanged: (val) {_emailController.text=val;
+                setState(() {
+
+                });},
+              icon: Icon(Icons.check, color:_emailController.text!=""? TColors.primary:Colors.transparent),
             ),
             const SizedBox(height: defPadding),
             InputField(
               hint: 'Придумай пароль',
+              controller: _passController,
               isObscure: isVisiblePassword ? true:false,
-              onChanged: (val){},
+              onChanged: (val){_passController.text=val;
+                setState(() {
+
+                });},
               icon: IconButton(
                   onPressed: () {isVisiblePassword=!isVisiblePassword;
 setState(() {
@@ -101,7 +120,13 @@ class SignUpButton extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(defPadding, defPadding * 2, defPadding, 0),
       child: CustomButton(
 
-        onPressed: () {},
+        onPressed: () {
+          if((_passController.text!="")&(_emailController.text!="")&(_nameController.text!="")){
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => MyHomePage()));
+          }
+
+        },
         bgColor: TColors.accentLight,
         padding: const EdgeInsets.symmetric(vertical: 14),
         child: Text('Войти', style: TTextStyle.t60015.copyWith(color: TColors.primary)),

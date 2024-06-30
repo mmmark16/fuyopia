@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     // TODO: implement initState
-    FlutterNativeSplash.remove();
+
     super.initState();
   }
 

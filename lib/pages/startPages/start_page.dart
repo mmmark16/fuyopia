@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../widget/onboard_button.dart';
 import '../reg_pages/sign_in_page.dart';
 
 class StartPage extends StatefulWidget {
-  const StartPage({super.key});
+   StartPage({super.key});
 
   @override
   State<StartPage> createState() => _StartPageState();
@@ -17,6 +18,7 @@ final controller = PageController(viewportFraction: 0.8, keepPage: true);
 class _StartPageState extends State<StartPage> {
   @override
   void initState() {
+    FlutterNativeSplash.remove();
     // TODO: implement initState
    _startIndex=1;
     super.initState();

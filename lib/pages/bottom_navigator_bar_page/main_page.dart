@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fuyopia/pages/profile_pages/profile_page.dart';
 import 'package:fuyopia/pages/startPages/start_page.dart';
+import 'package:fuyopia/widget/const.dart';
 import 'package:fuyopia/widget/restauraunt_card.dart';
 
 class MainPage extends StatefulWidget {
@@ -15,6 +16,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           actions: [
             Container(
               width: 60,
@@ -44,7 +46,17 @@ class _MainPageState extends State<MainPage> {
                       width: 2,
                     ),
                     borderRadius: BorderRadius.all(Radius.circular(20))),
-                child: Row(
+                child:
+              TextField(
+onChanged: (val){},
+                decoration: InputDecoration(
+                  hintText: "Поиск",
+                  hintStyle:TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400).copyWith(color: TColors.surface),
+                ),
+
+
+              )
+              /*Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
@@ -61,7 +73,7 @@ class _MainPageState extends State<MainPage> {
                       color: Color.fromRGBO(0, 32, 96, 1),
                     )
                   ],
-                )),
+                )*/),
             Icon(
               Icons.location_on,
               size: 36,
