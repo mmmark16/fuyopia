@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import 'order_page.dart';
+
+bool _isCard = true;
+bool _isInRestaurant = true;
 
 class PayForOrder extends StatefulWidget {
   const PayForOrder({super.key});
@@ -88,29 +90,49 @@ class _PayForOrderState extends State<PayForOrder> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.circle,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        'Дебетовая карта',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
-                      )
-                    ],
+                  GestureDetector(
+                    onTap: (){
+                      _isCard = true;
+                      setState(() {
+                      });
+                    },
+                    child: Row(
+                      children: [
+                        _isCard ? Icon(
+                          Icons.circle,
+                          color: Colors.white,
+                        ) :Icon(
+                          Icons.circle_outlined,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          'Дебетовая карта',
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        )
+                      ],
+                    ),
                   ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.circle_outlined,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        'Наличные',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
-                      )
-                    ],
+                  GestureDetector(
+                    onTap: (){
+                      _isCard = false;
+                      setState(() {
+                      });
+                    },
+                    child: Row(
+                      children: [
+                        !_isCard ? Icon(
+                          Icons.circle,
+                          color: Colors.white,
+                        ) : Icon(
+                          Icons.circle_outlined,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          'Наличные',
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        )
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -121,34 +143,97 @@ class _PayForOrderState extends State<PayForOrder> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width / 3,
-                    height: 62,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(24)),
-                        color: Color.fromRGBO(8, 192, 105, 0.5)),
-                    child: Center(
-                      child: Text('В ресторане',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 16)),
+                  GestureDetector(
+                    onTap: (){
+                      _isInRestaurant = true;
+                      setState(() {
+                      });
+                    },
+                    child: Container(
+                      padding: _isInRestaurant ? EdgeInsets.only(top: 4, bottom: 4) : EdgeInsets.only(top: 24, bottom: 24),
+                      width: MediaQuery.of(context).size.width / 2.4,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(24)),
+                          color: _isInRestaurant ? Color.fromRGBO(8, 192, 105, 0.5) : Color.fromRGBO(150, 150, 150, 0.5)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('В ресторане',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: 16)),
+                            Visibility(
+                              visible: _isInRestaurant,
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 8.0),
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width / 3,
+                                  child: Text('Адрес, время работы', style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12)),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-                  Container(
-                    width: MediaQuery.of(context).size.width / 3,
-                    height: 62,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(24)),
-                        color: Color.fromRGBO(150, 150, 150, 0.5)),
-                    child: Center(
-                      child: Text('Доставка',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 16)),
+                  GestureDetector(
+                    onTap: (){
+                      _isInRestaurant = false;
+                      setState(() {
+                      });
+                    },
+                    child: Container(
+                      padding: !_isInRestaurant ? EdgeInsets.only(top: 4, bottom: 4, right: 12) : EdgeInsets.only(top: 24, bottom: 24),
+                      width: MediaQuery.of(context).size.width / 2.4,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(24)),
+                          color: !_isInRestaurant ? Color.fromRGBO(8, 192, 105, 0.5) : Color.fromRGBO(150, 150, 150, 0.5)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Доставка',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: 16)),
+                            Visibility(
+                              visible: !_isInRestaurant,
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      child: Text('Адрес', style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 12)),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text('Ул. Пушкина', style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 12)),
+                                        SvgPicture.asset('assets/button_edit_location.svg')
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
                     ),
-                  )
+                  ),
                 ],
               ),
               Padding(
