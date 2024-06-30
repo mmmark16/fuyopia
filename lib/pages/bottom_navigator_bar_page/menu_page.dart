@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:syncfusion_flutter_core/theme.dart';
+import 'package:syncfusion_flutter_sliders/sliders.dart';
 import '../../widget/avatar.dart';
 import '../../widget/const.dart';
 import '../../widget/filter_button.dart';
@@ -14,6 +16,10 @@ class MenuPage extends StatefulWidget {
   @override
   State<MenuPage> createState() => _MenuPageState();
 }
+SfRangeValues _values = SfRangeValues( _valStart, _valEnd);
+int _valStart = 500;
+int _valEnd = 3000;
+
 
 class _MenuPageState extends State<MenuPage> {
   bool isSushi = false;
@@ -44,18 +50,17 @@ class _MenuPageState extends State<MenuPage> {
                 height: 56,
                 child: Image.asset('assets/restaurant_image.png')),
             GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ChefPage()));
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ChefPage()));
               },
               child: Container(
                   width: 42, height: 42, child: Image.asset('assets/Chef.png')),
             ),
             GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ProfilePage()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ProfilePage()));
                 },
                 child: CustomAvatar(
                   backColor: TColors.accent,
@@ -110,130 +115,278 @@ class _MenuPageState extends State<MenuPage> {
                               ),
                             ),
                             builder: (BuildContext context) {
-                              return Container(
-                                  width: MediaQuery.of(context).size.width,
-                                  height: MediaQuery.of(context).size.height -
-                                      MediaQuery.of(context).size.height / 15,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                        topRight: Radius.circular(16),
-                                        topLeft: Radius.circular(16)),
-                                    color: Colors.white,
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(16),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Center(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(top: 16),
-                                            child: Container(
-                                              width: 60,
-                                              height: 4,
-                                              decoration: BoxDecoration(
-                                                color: TColors.accent,
-                                                borderRadius: BorderRadius.circular(
-                                                    defRadiusOther),
+                              return StatefulBuilder(builder: (BuildContext context, StateSetter setState ){
+                                return Container(
+                                    width: MediaQuery.of(context).size.width,
+                                    height: MediaQuery.of(context).size.height -
+                                        MediaQuery.of(context).size.height / 15,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(16),
+                                          topLeft: Radius.circular(16)),
+                                      color: Colors.white,
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(16),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                        children: [
+                                          Center(
+                                            child: Padding(
+                                              padding:
+                                              const EdgeInsets.only(top: 16),
+                                              child: Container(
+                                                width: 60,
+                                                height: 4,
+                                                decoration: BoxDecoration(
+                                                  color: TColors.accent,
+                                                  borderRadius:
+                                                  BorderRadius.circular(
+                                                      defRadiusOther),
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                        Center(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 32, bottom: 16),
-                                            child: Text("Фильтр",
+                                          Center(
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 32, bottom: 16),
+                                              child: Text("Фильтр",
+                                                  style: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 24,
+                                                      color: Colors.black)),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                            const EdgeInsets.only(bottom: 16),
+                                            child: Text("Категории",
                                                 style: TextStyle(
                                                     fontWeight: FontWeight.bold,
                                                     fontSize: 24,
                                                     color: Colors.black)),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(bottom: 16),
-                                          child: Text("Категории",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 24,
-                                                  color: Colors.black)),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(bottom: 16),
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.start,
+                                          Padding(
+                                            padding:
+                                            const EdgeInsets.only(bottom: 16),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                              children: [
+                                                FilterButton(
+                                                  textInButton: 'Завтрак',
+                                                  borderColor: Color.fromRGBO(
+                                                      0, 32, 96, 1),
+                                                  textColor: Colors.grey,
+                                                ),
+                                                FilterButton(
+                                                  textInButton: 'Ланч',
+                                                  borderColor: Color.fromRGBO(
+                                                      0, 32, 96, 1),
+                                                  textColor: Colors.grey,
+                                                ),
+                                                FilterButton(
+                                                  textInButton: 'Закуски',
+                                                  borderColor: Color.fromRGBO(
+                                                      0, 32, 96, 1),
+                                                  textColor: Colors.grey,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.start,
                                             children: [
-                                              FilterButton(textInButton: 'Завтрак', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
-                                              FilterButton(textInButton: 'Ланч', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
-                                              FilterButton(textInButton: 'Закуски', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
+                                              FilterButton(
+                                                textInButton: 'Напитки',
+                                                borderColor:
+                                                Color.fromRGBO(0, 32, 96, 1),
+                                                textColor: Colors.grey,
+                                              ),
+                                              FilterButton(
+                                                textInButton: 'Фаст фуд',
+                                                borderColor:
+                                                Color.fromRGBO(0, 32, 96, 1),
+                                                textColor: Colors.grey,
+                                              ),
+                                              FilterButton(
+                                                textInButton: 'Десерт',
+                                                borderColor:
+                                                Color.fromRGBO(0, 32, 96, 1),
+                                                textColor: Colors.grey,
+                                              ),
                                             ],
                                           ),
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            FilterButton(textInButton: 'Напитки', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
-                                            FilterButton(textInButton: 'Фаст фуд', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
-                                            FilterButton(textInButton: 'Десерт', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
-                                          ],
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                              bottom: 16, top: 36),
-                                          child: Text("Кухня",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 24,
-                                                  color: Colors.black)),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(bottom: 16),
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.start,
-                                            children: [
-                                              FilterButton(textInButton: 'Азия', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
-                                              FilterButton(textInButton: 'Италия', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
-                                              FilterButton(textInButton: 'Мексика', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(bottom: 16),
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.start,
-                                            children: [
-                                              FilterButton(textInButton: 'Европа', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
-                                              FilterButton(textInButton: 'Япония', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
-                                              FilterButton(textInButton: 'Корея',borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(bottom: 16),
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.start,
-                                            children: [
-                                              FilterButton(textInButton: 'Бургеры', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
-                                              FilterButton(textInButton: 'Суши', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
-                                            ],
-                                          ),
-                                        ),
-                                        Container(
-                                          width: MediaQuery.of(context).size.width,
-                                          height: 50,
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                              BorderRadius.all(Radius.circular(12)),
-                                              color: Color.fromRGBO(8, 192, 105, 1)),
-                                          child: Center(
-                                            child: Text("Фильтровать",
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                bottom: 16, top: 36),
+                                            child: Text("Кухня",
                                                 style: TextStyle(
-                                                    fontSize: 16, color: Colors.white)),
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 24,
+                                                    color: Colors.black)),
                                           ),
-                                        )
-                                      ],
-                                    ),
-                                  ));
+                                          Padding(
+                                            padding:
+                                            const EdgeInsets.only(bottom: 16),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                              children: [
+                                                FilterButton(
+                                                  textInButton: 'Азия',
+                                                  borderColor: Color.fromRGBO(
+                                                      0, 32, 96, 1),
+                                                  textColor: Colors.grey,
+                                                ),
+                                                FilterButton(
+                                                  textInButton: 'Италия',
+                                                  borderColor: Color.fromRGBO(
+                                                      0, 32, 96, 1),
+                                                  textColor: Colors.grey,
+                                                ),
+                                                FilterButton(
+                                                  textInButton: 'Мексика',
+                                                  borderColor: Color.fromRGBO(
+                                                      0, 32, 96, 1),
+                                                  textColor: Colors.grey,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                            const EdgeInsets.only(bottom: 16),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                              children: [
+                                                FilterButton(
+                                                  textInButton: 'Европа',
+                                                  borderColor: Color.fromRGBO(
+                                                      0, 32, 96, 1),
+                                                  textColor: Colors.grey,
+                                                ),
+                                                FilterButton(
+                                                  textInButton: 'Япония',
+                                                  borderColor: Color.fromRGBO(
+                                                      0, 32, 96, 1),
+                                                  textColor: Colors.grey,
+                                                ),
+                                                FilterButton(
+                                                  textInButton: 'Корея',
+                                                  borderColor: Color.fromRGBO(
+                                                      0, 32, 96, 1),
+                                                  textColor: Colors.grey,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                            const EdgeInsets.only(bottom: 16),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                              children: [
+                                                FilterButton(
+                                                  textInButton: 'Бургеры',
+                                                  borderColor: Color.fromRGBO(
+                                                      0, 32, 96, 1),
+                                                  textColor: Colors.grey,
+                                                ),
+                                                FilterButton(
+                                                  textInButton: 'Суши',
+                                                  borderColor: Color.fromRGBO(
+                                                      0, 32, 96, 1),
+                                                  textColor: Colors.grey,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.stretch,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    bottom: defPadding * 2),
+                                                child: Text(
+                                                  'Цена',
+                                                  style: TTextStyle.t60018.copyWith(
+                                                    color: TColors.primary,
+                                                  ),
+                                                ),
+                                              ),
+                                              SfRangeSliderTheme(
+                                                data:  SfRangeSliderThemeData(
+                                                  tooltipBackgroundColor:
+                                                  TColors.accent,
+                                                  tooltipTextStyle: TextStyle(
+                                                      fontSize: 13,
+                                                      fontWeight: FontWeight.w400),
+                                                  thumbRadius: 9,
+                                                  thumbStrokeWidth: 2,
+                                                  thumbStrokeColor: TColors.surface,
+                                                  thumbColor: TColors.surface,
+                                                  activeTrackColor: TColors.accent,
+                                                  activeTrackHeight: 5,
+                                                  inactiveTrackColor: TColors.surface,
+                                                  inactiveTrackHeight: 5,
+                                                ),
+                                                child: SfRangeSlider(
+                                                  min: 500,
+                                                  max: 3000,
+                                                  interval: 50,
+                                                  stepSize: 50,
+                                                  enableTooltip: true,
+                                                  shouldAlwaysShowTooltip: true,
+                                                  values: _values,
+                                                  onChanged: (SfRangeValues value) {_values = value;
+                                                  setState(() {
+                                                  });},
+
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text("500",style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.white)),
+                                              Text("3000",style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.white)),
+
+                                            ],
+
+                                          ),
+                                          SizedBox(height: 10,),
+                                          Container(
+                                            width:
+                                            MediaQuery.of(context).size.width,
+                                            height: 50,
+                                            decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(12)),
+                                                color: Color.fromRGBO(
+                                                    8, 192, 105, 1)),
+                                            child: Center(
+                                              child: Text("Фильтровать",
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      color: Colors.white)),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ));
+                              });
                             });
                       },
                       child: Container(
@@ -245,11 +398,12 @@ class _MenuPageState extends State<MenuPage> {
                               color: Colors.black,
                               width: 2,
                             ),
-                            borderRadius: BorderRadius.all(Radius.circular(20))),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
                         child: Container(
                             child: SvgPicture.asset(
-                              "assets/filter_icon_green.svg",
-                            )),
+                          "assets/filter_icon_green.svg",
+                        )),
                       ),
                     ),
                   ],

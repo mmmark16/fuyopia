@@ -255,19 +255,8 @@ class _MainPageState extends State<MainPage> {
                                               enableTooltip: true,
                                               shouldAlwaysShowTooltip: true,
                                               values: _values,
-                                              /*   onChangeStart: (value)  {_values = SfRangeValues( value, _valEnd); setState(() {
-
-                                            });},
-                                            onChangeEnd:  (value)  {
-                                            _values = SfRangeValues( _valStart, value);
-                                            setState(() {
-
-                                            });
-                                          },*/
                                               onChanged: (SfRangeValues value) {_values = value;
-                                              print("_________++++++++++++++++++++++++++++++++_");
                                               setState(() {
-
                                               });},
 
                                             ),
