@@ -185,55 +185,98 @@ class _ProductPageState extends State<ProductPage> {
                                 return Container(
                                     width: MediaQuery.of(context).size.width,
                                     height: MediaQuery.of(context).size.height -
-                                        MediaQuery.of(context).size.height / 6,
+                                        MediaQuery.of(context).size.height / 8,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(16),
                                           topLeft: Radius.circular(16)),
-                                      color: Color.fromRGBO(0, 32, 96, 1),
+                                      color: Colors.white,
                                     ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(16),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Center(
-                                            child: Container(
-                                              width: 60,
-                                              height: 4,
-                                              decoration: BoxDecoration(
-                                                color: TColors.primary,
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        defRadiusOther),
-                                              ),
-                                            ),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          width: MediaQuery.of(context).size.width,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.all(Radius.circular(16)),
+                                            color: Color.fromRGBO(0, 32, 96, 1),
                                           ),
-                                          Center(
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 32, bottom: 16),
-                                              child: Text("Изменить",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 24,
-                                                      color: Colors.white)),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.symmetric(horizontal: 64),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(16),
                                             child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
                                               children: [
-                                                IngredientCount(photopath: 'assets/chicken_big.png', weight: "110гр.", name: " Курица", cost: '50руб./гр.',),
-                                                IngredientCount(photopath: 'assets/pumpkin_big.png', weight: "110гр.", name: " Тыква", cost: '50руб./гр.',),
-                                                IngredientCount(photopath: 'assets/lettuce_big.png', weight: "110гр.", name: " Капуста", cost: '50руб./гр.',),
+                                                Center(
+                                                  child: Container(
+                                                    width: 60,
+                                                    height: 4,
+                                                    decoration: BoxDecoration(
+                                                      color: TColors.primary,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              defRadiusOther),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Center(
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.only(
+                                                        top: 32, bottom: 16),
+                                                    child: Text("Изменить",
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontSize: 24,
+                                                            color: Colors.white)),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsets.symmetric(horizontal: 64),
+                                                  child: Column(
+                                                    children: [
+                                                      IngredientCount(photopath: 'assets/chicken_big.png', weight: "110гр.", name: " Курица", cost: '50руб./гр.',),
+                                                      IngredientCount(photopath: 'assets/pumpkin_big.png', weight: "110гр.", name: " Тыква", cost: '50руб./гр.',),
+                                                      IngredientCount(photopath: 'assets/lettuce_big.png', weight: "110гр.", name: " Капуста", cost: '50руб./гр.',),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Column(
+                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      children: [
+                                                        Text('Итого',),
+                                                        Text('356руб.'),
+                                                      ],
+                                                    ),
+                                                    Container(
+                                                      width: 160,
+                                                      height: 60,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.only(
+                                                            topRight: Radius.circular(16),
+                                                            topLeft: Radius.circular(16)),
+                                                        color: Color.fromRGBO(8, 192, 105, 1),
+                                                      ),
+                                                      child: Center(child: Text('Изменить блюдо', style: TextStyle(
+                                                          fontWeight:
+                                                          FontWeight.bold,
+                                                          fontSize: 14,
+                                                          color: Colors.white))),
+                                                    ),
+                                                  ],
+                                                ),
                                               ],
                                             ),
-                                          )
-                                        ],
-                                      ),
+                                          ),
+                                        ),
+                                        Container(
+                                          width: MediaQuery.of(context).size.width,
+                                          height: MediaQuery.of(context).size.height/7,
+                                          color: Colors.white,
+                                        ),
+                                      ],
                                     ));
                               });
                         },
