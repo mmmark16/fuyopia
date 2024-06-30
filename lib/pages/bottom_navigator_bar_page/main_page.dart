@@ -51,7 +51,7 @@ class _MainPageState extends State<MainPage> {
 onChanged: (val){},
                 decoration: InputDecoration(
                   hintText: "Поиск",
-                  hintStyle:TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400).copyWith(color: TColors.surface),
+                  hintStyle:TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400).copyWith(color: TColors.surface ),
                 ),
 
 
