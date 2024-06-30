@@ -23,7 +23,7 @@ class _CartPageState extends State<CartPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: Icon(Icons.arrow_back_ios_new),
+        leading: IconButton(icon:Icon(Icons.arrow_back_ios_new), onPressed:(){Navigator.pop(context);} ,),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -32,10 +32,10 @@ class _CartPageState extends State<CartPage> {
               children: [
                 Text("Ресторан 1",
                     style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 21)),
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                 Text(
                   "часы работ",
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 13),
                 ),
               ],
             ),
@@ -67,7 +67,7 @@ class _CartPageState extends State<CartPage> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 32.0),
+                padding: const EdgeInsets.only(top: 4.0),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
@@ -80,13 +80,27 @@ class _CartPageState extends State<CartPage> {
                           isCancek = false;
                           setState(() {});
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 16.0),
-                          child: Text(
-                            'Активные',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold, color: isActive ? Colors.black : Colors.grey),
-                          ),
+                        child: Column(   crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 16.0),
+                              child: Text(
+                                'Активные',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold, color: isActive ? Colors.black : Colors.grey),
+                              ),
+                            ),
+                            Container(
+                              height: 5,
+                              width: 30,
+                              decoration: BoxDecoration(
+                                  color: isActive
+                                      ? TColors.accentLight
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(100))),
+                            )
+                          ],
                         ),
                       ),
                       GestureDetector(
@@ -96,13 +110,27 @@ class _CartPageState extends State<CartPage> {
                           isCancek = false;
                           setState(() {});
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 16.0),
-                          child: Text(
-                            'История',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold, color: isHistory ? Colors.black : Colors.grey),
-                          ),
+                        child: Column(   crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 16.0),
+                              child: Text(
+                                'История',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold, color: isHistory ? Colors.black : Colors.grey),
+                              ),
+                            ),
+                            Container(
+                              height: 5,
+                              width: 30,
+                              decoration: BoxDecoration(
+                                  color: isHistory
+                                      ? TColors.accentLight
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(100))),
+                            )
+                          ],
                         ),
                       ),
                       GestureDetector(
@@ -112,13 +140,28 @@ class _CartPageState extends State<CartPage> {
                           isCancek = true;
                           setState(() {});
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 16.0),
-                          child: Text(
-                            'Отмененные',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold, color: isCancek ? Colors.black : Colors.grey),
-                          ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 16.0),
+                              child: Text(
+                                'Отмененные',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold, color: isCancek ? Colors.black : Colors.grey),
+                              ),
+                            ),
+                            Container(
+                              height: 5,
+                              width: 30,
+                              decoration: BoxDecoration(
+                                  color: isCancek
+                                      ? TColors.accentLight
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(100))),
+                            )
+                          ],
                         ),
                       ),
                     ],
