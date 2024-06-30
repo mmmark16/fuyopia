@@ -8,6 +8,7 @@ import '../../widget/filter_button.dart';
 import '../../widget/food_card.dart';
 import '../../widget/sushi_card.dart';
 import '../chef_page.dart';
+import '../home_page.dart';
 import '../profile_pages/profile_page.dart';
 
 class MenuPage extends StatefulWidget {
@@ -33,7 +34,8 @@ class _MenuPageState extends State<MenuPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: IconButton(icon:Icon(Icons.arrow_back_ios_new), onPressed:(){Navigator.pop(context);} ,),
+        leading: IconButton(icon:Icon(Icons.arrow_back_ios_new), onPressed:(){Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage(indexPage: 0)));
+        } ,),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

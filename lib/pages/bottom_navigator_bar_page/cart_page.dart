@@ -4,6 +4,7 @@ import '../../widget/const.dart';
 import '../cart_pages/active_page.dart';
 import '../cart_pages/cancel_page.dart';
 import '../cart_pages/history_page.dart';
+import '../home_page.dart';
 import '../profile_pages/profile_page.dart';
 
 class CartPage extends StatefulWidget {
@@ -23,7 +24,8 @@ class _CartPageState extends State<CartPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: IconButton(icon:Icon(Icons.arrow_back_ios_new), onPressed:(){Navigator.pop(context);} ,),
+        leading: IconButton(icon:Icon(Icons.arrow_back_ios_new), onPressed:(){Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage(indexPage: 0)));
+        } ,),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

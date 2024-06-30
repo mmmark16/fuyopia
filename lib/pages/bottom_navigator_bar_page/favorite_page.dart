@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fuyopia/pages/home_page.dart';
+
+import '../../widget/const.dart';
 
 class FavoritePage extends StatefulWidget {
   const FavoritePage({super.key});
@@ -17,16 +20,22 @@ class _FavoritePageState extends State<FavoritePage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: Icon(Icons.arrow_back_ios_new),
-        title: Text("Избранное"),
+        leading: IconButton(icon:Icon(Icons.arrow_back_ios_new), 
+          onPressed:(){  Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage(indexPage: 0)));
+          } ,),
+        title: Text("Избранное",style: TextStyle(fontWeight: FontWeight.w400,fontSize: 25),),//25 400
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: Icon(Icons.search),
+            padding: const EdgeInsets.only(right: 12),
+            child: SvgPicture.asset(
+              'assets/search.svg',
+            ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: Icon(Icons.toc),
+            padding: const EdgeInsets.only(left: 12,right: 24),
+            child: SvgPicture.asset(
+              'assets/filter_icon.svg',
+            ),
           ),
         ],
       ),
@@ -37,38 +46,72 @@ class _FavoritePageState extends State<FavoritePage> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Container(
-                width: 180,
+                width: MediaQuery.of(context).size.width/2,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        isDish = true;
-                        isRestaraunt = false;
-                        setState(() {});
-                      },
-                      child: Text(
-                        'Блюда',
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight:
-                                isDish ? FontWeight.bold : FontWeight.normal),
-                      ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            isDish = true;
+                            isRestaraunt = false;
+                            setState(() {});
+                          },
+                          child: Text(
+                            'Блюда',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight:
+                                     FontWeight.bold ,
+                            color:isDish ? Colors.black:Colors.grey,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 5,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              color: isDish
+                                  ? TColors.accentLight
+                                  : Colors.transparent,
+                              borderRadius: BorderRadius.all(
+                                  Radius.circular(100))),
+                        )
+                      ],
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        isRestaraunt = true;
-                        isDish = false;
-                        setState(() {});
-                      },
-                      child: Text(
-                        'Рестораны',
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: isRestaraunt
-                                ? FontWeight.bold
-                                : FontWeight.normal),
-                      ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            isRestaraunt = true;
+                            isDish = false;
+                            setState(() {});
+                          },
+                          child: Text(
+                            'Рестораны',
+                            style: TextStyle(
+                                fontSize: 18,
+                              fontWeight:
+                              FontWeight.bold ,
+                              color:isRestaraunt ? Colors.black:Colors.grey,
+
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 5,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              color: isRestaraunt
+                                  ? TColors.accentLight
+                                  : Colors.transparent,
+                              borderRadius: BorderRadius.all(
+                                  Radius.circular(100))),
+                        )
+                      ],
                     ),
                   ],
                 ),
@@ -97,8 +140,16 @@ class _FavoritePageState extends State<FavoritePage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                             Padding(
+                               padding: const EdgeInsets.only(top: 18.0,right: 18),
+                               child: Align(
+                                   alignment:Alignment.topRight,
+                                   child: SvgPicture.asset(
+                                  'assets/green_favourite.svg',
+                                )),
+                             ),
                               Padding(
-                                padding: const EdgeInsets.only(top: 52.0),
+                                padding: const EdgeInsets.only(top: 0.0),
                                 child: Center(
                                   child: SvgPicture.asset(
                                     'assets/dish.svg',
@@ -113,12 +164,18 @@ class _FavoritePageState extends State<FavoritePage> {
                                 child: Text(
                                   "Блюдо 1",
                                   style: TextStyle(
-                                      fontSize: 18, color: Colors.white),
+                                      fontSize: 18, color: Colors.white,fontWeight: FontWeight.bold),
                                 ),
                               ),
+                              Align(
+                                  alignment: Alignment.centerRight,
+                                  child:Padding(
+                                    padding: const EdgeInsets.only(right: 12.0),
+                                    child: Icon(Icons.add,color: Colors.white,),
+                                  )),
                               Padding(
                                 padding:
-                                    const EdgeInsets.only(left: 24.0, top: 28),
+                                    const EdgeInsets.only(left: 24.0, top: 0),
                                 child: Text(
                                   "1.953 руб",
                                   style: TextStyle(
@@ -161,11 +218,11 @@ class _FavoritePageState extends State<FavoritePage> {
                               ),
                               Padding(
                                 padding:
-                                    const EdgeInsets.only(left: 24.0, top: 32),
+                                    const EdgeInsets.only(left: 24.0, top: 12),
                                 child: Text(
                                   "Ресторан 1",
                                   style: TextStyle(
-                                      fontSize: 18, color: Colors.white),
+                                      fontSize: 18, color: Colors.white,fontWeight: FontWeight.bold),
                                 ),
                               ),
                               Padding(
