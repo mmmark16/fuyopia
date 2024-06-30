@@ -91,9 +91,9 @@ class ReviewsWaiterPage extends StatelessWidget {
                       showModalBottomSheet(
                           context: context,
                           builder: (BuildContext context) {
-                            return Container(
+                            return SingleChildScrollView(child:Container(
                                 width: MediaQuery.of(context).size.width,
-                                height: MediaQuery.of(context).size.height,
+                                height: MediaQuery.of(context).size.height/1.5,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.only(
                                       topRight: Radius.circular(16),
@@ -101,29 +101,36 @@ class ReviewsWaiterPage extends StatelessWidget {
                                   color: TColors.primary,
                                 ),
                                 child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Container(
-                                      width: MediaQuery.of(context).size.width/3,
-                                      child: Row(
-                                        children: [
-                                          Container(
-                                            width: 60,
-                                            height: 60,
-                                            child: Image.asset(
-                                              'assets/friend2.png',
-                                            ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 16),
+                                      child: Container(
+                                        width: 60,
+                                        height: 4,
+                                        decoration: BoxDecoration(
+                                          color: TColors.secondary,
+                                          borderRadius: BorderRadius.circular(
+                                              defRadiusOther),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 24,bottom: 24),
+                                      child: Container(
+                                        width:MediaQuery.of(context).size.width/2,
+                                        child: ListTile(
+                                          leading:  Image.asset(
+                                            'assets/friend2.png',
                                           ),
-                                          Column(
-                                            children: [
-                                              Text(
-                                                "Официант",
-                                                style: TTextStyle.t60014.copyWith(color: TColors.dark),
-                                              ),
-                                              Text("Дэвид Гетта",
-                                                  style: TTextStyle.t60014.copyWith(color: TColors.dark)),
-                                            ],
+                                          title: Text(
+                                            "Официант",
+                                            style: TTextStyle.t60014.copyWith(color: TColors.dark),
                                           ),
-                                        ],
+                                          subtitle: Text("Дэвид Гетта",
+                                              style: TTextStyle.t60014.copyWith(color: TColors.dark)),
+
+                                        ),
                                       ),
                                     ),
                                     Padding(
@@ -145,7 +152,7 @@ class ReviewsWaiterPage extends StatelessWidget {
                                                       fontWeight:
                                                       FontWeight.bold,
                                                       fontSize: 16,
-                                                      color: Colors.white)),
+                                                      color: Colors.black)),
                                               Row(
                                                 children: [
                                                   Icon(
@@ -191,10 +198,21 @@ class ReviewsWaiterPage extends StatelessWidget {
                                       child: Padding(
                                         padding: const EdgeInsets.only(
                                             left: 16, top: 16),
-                                        child: Text("Комментарий",
-                                            style: TextStyle(
-                                                fontSize: 12,
-                                                color: Colors.black)),
+                                        child: Container(
+                                          width: MediaQuery.of(context).size.width / 3,
+                                          child: TextField(
+                                            /*scrollPadding: EdgeInsets.only(
+                                                bottom: MediaQuery.of(context).viewInsets.bottom + 20*4),*/
+                                            onChanged: (val) {},
+                                            decoration: InputDecoration(
+                                              border: InputBorder.none,
+                                              hintText: "Комментарии",
+                                              hintStyle: TextStyle(
+                                                  fontSize: 14.0,
+                                                  fontWeight: FontWeight.w400),
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                     Padding(
@@ -216,7 +234,7 @@ class ReviewsWaiterPage extends StatelessWidget {
                                       ),
                                     )
                                   ],
-                                ));
+                                )));
                           });
                     },
                     child: Container(
