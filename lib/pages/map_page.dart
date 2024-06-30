@@ -136,7 +136,7 @@ class _MapPageState extends State<MapPage> {
                               trailing:   Container(
                                   width:  MediaQuery.of(context).size.width/4,
                                   child:GestureDetector(
-                                      onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage2()));
+                                      onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage2(workerName: 'Курьер',)));
                                       },
                                       child:Padding(
                                       padding:EdgeInsets.only(right: 20,bottom: 0),
