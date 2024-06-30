@@ -27,7 +27,7 @@ class _FilterButtonState extends State<FilterButton> {
       },
         child: Container(
           padding: EdgeInsets.symmetric(
-              vertical: 12, horizontal: 24),
+              vertical: 12, horizontal: 18),
           decoration: BoxDecoration(
             color: isPress? TColors.accent : Color.fromRGBO(0, 0, 0, 0),
               borderRadius: BorderRadius.all(
