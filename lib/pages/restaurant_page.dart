@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:fuyopia/pages/home_page.dart';
 import 'package:fuyopia/pages/photo_user_page.dart';
+import 'package:fuyopia/pages/profile_pages/profile_page.dart';
 import 'package:fuyopia/pages/reviews_page.dart';
 
+import '../widget/avatar.dart';
+import '../widget/const.dart';
 import 'delivery_page.dart';
 
 class ReastaurantPage extends StatefulWidget {
@@ -41,20 +44,20 @@ class _ReastaurantPageState extends State<ReastaurantPage> {
               "8.5",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
-            Icon(
-              Icons.location_on,
-              size: 36,
-              color: Color.fromRGBO(
-                252,
-                202,
-                126,
-                1,
-              ),
-            ),
-            CircleAvatar(
-              child: Icon(Icons.person),
-              radius: 24,
-            ),
+            Image.asset('assets/Place_marker.png'),
+            GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ProfilePage()));
+                },
+                child: CustomAvatar(
+                  backColor: TColors.accent,
+                  width: 45,
+                  url: 'assets/no_avatar.png',
+                  name: "Дениска Биткоин",
+                ))
           ],
         ),
       ),
@@ -69,15 +72,14 @@ class _ReastaurantPageState extends State<ReastaurantPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      width: 180,
-                      height: 180,
+                      width: MediaQuery.of(context).size.width/2.5+MediaQuery.of(context).size.width / 11,
+                      height: MediaQuery.of(context).size.height/4.6,
                       child: Stack(
                         children: [
                           Align(
                             alignment: Alignment.topLeft,
                             child: Container(
-                              width: 160,
-                              height: 180,
+                              width: MediaQuery.of(context).size.width/2.5,
                               decoration: BoxDecoration(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20)),
@@ -112,7 +114,7 @@ class _ReastaurantPageState extends State<ReastaurantPage> {
                                         Center(
                                             child: Image.asset(
                                           'assets/restaurant_image.png',
-                                          width: 150,
+                                          width: MediaQuery.of(context).size.width/2.8,
                                         ))
                                       ],
                                     ),
@@ -147,7 +149,7 @@ class _ReastaurantPageState extends State<ReastaurantPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          width: 156,
+                          width: MediaQuery.of(context).size.width/3,
                           child: Text(
                             "Информация о заведении",
                             style: TextStyle(fontSize: 16),
@@ -161,36 +163,50 @@ class _ReastaurantPageState extends State<ReastaurantPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              width: 56,
-                              height: 38,
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(12)),
-                                  color: Color.fromRGBO(8, 192, 105, 1)),
-                              child: Center(
-                                  child: Text("Фото",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white))),
+                            GestureDetector(
+                              onTap: (){
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) => PhotoUserPage()));
+                              },
+                              child: Container(
+                                width: 56,
+                                height: 38,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(12)),
+                                    color: Color.fromRGBO(8, 192, 105, 1)),
+                                child: Center(
+                                    child: Text("Фото",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white))),
+                              ),
                             ),
                             SizedBox(
                               width: 4,
                             ),
-                            Container(
-                              width: 56,
-                              height: 38,
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(12)),
-                                  color: Color.fromRGBO(0, 32, 96, 1)),
-                              child: Center(
-                                  child: Text("Заказ",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white))),
+                            GestureDetector(
+                              onTap:(){
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MyHomePage(indexPage: 2,)));
+                              },
+                              child: Container(
+                                width: 56,
+                                height: 38,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(12)),
+                                    color: Color.fromRGBO(0, 32, 96, 1)),
+                                child: Center(
+                                    child: Text("Заказ",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white))),
+                              ),
                             ),
                           ],
                         )

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../../widget/avatar.dart';
 import '../../widget/const.dart';
 import '../../widget/filter_button.dart';
 import '../../widget/food_card.dart';
 import '../../widget/sushi_card.dart';
 import '../chef_page.dart';
+import '../profile_pages/profile_page.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -48,10 +50,19 @@ class _MenuPageState extends State<MenuPage> {
               child: Container(
                   width: 42, height: 42, child: Image.asset('assets/Chef.png')),
             ),
-            CircleAvatar(
-              child: Icon(Icons.person),
-              radius: 24,
-            ),
+            GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ProfilePage()));
+                },
+                child: CustomAvatar(
+                  backColor: TColors.accent,
+                  width: 45,
+                  url: 'assets/no_avatar.png',
+                  name: "Дениска Биткоин",
+                )),
           ],
         ),
       ),
