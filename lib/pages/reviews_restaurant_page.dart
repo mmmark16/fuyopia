@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fuyopia/pages/profile_pages/profile_page.dart';
 
+import '../widget/avatar.dart';
+import '../widget/const.dart';
 import '../widget/review.dart';
 
-class ReviewsPage extends StatelessWidget {
-  const ReviewsPage({super.key});
+class ReviewsRestaurantPage extends StatelessWidget {
+  const ReviewsRestaurantPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +22,10 @@ class ReviewsPage extends StatelessWidget {
               children: [
                 Text("Ресторан 1",
                     style:
-                    TextStyle(fontWeight: FontWeight.bold, fontSize: 21)),
+                    TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                 Text(
                   "часы работ",
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 13),
                 ),
               ],
             ),
@@ -32,12 +35,21 @@ class ReviewsPage extends StatelessWidget {
             ),
             Text(
               "8.5",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
-            CircleAvatar(
-              child: Icon(Icons.person),
-              radius: 24,
-            ),
+            GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ProfilePage()));
+                },
+                child: CustomAvatar(
+                  backColor: TColors.accent,
+                  width: 45,
+                  url: 'assets/no_avatar.png',
+                  name: "Дениска Биткоин",
+                )),
           ],
         ),
       ),

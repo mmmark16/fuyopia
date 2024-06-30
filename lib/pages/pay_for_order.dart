@@ -328,21 +328,27 @@ class _PayForOrderState extends State<PayForOrder> {
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(top: 32),
-                                        child: Container(
-                                          width: MediaQuery.of(context).size.width /
-                                              1.2,
-                                          height: 40,
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(12)),
-                                              color:
-                                              Color.fromRGBO(8, 192, 105, 1)),
-                                          child: Center(
-                                            child: Text("Отсканировать",
-                                                style: TextStyle(
-                                                    fontSize: 20,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.white)),
+                                        child: GestureDetector(
+                                          onTap: (){
+                                            Navigator.push(context,
+                                                MaterialPageRoute(builder: (context) => OrderPage()));
+                                          },
+                                          child: Container(
+                                            width: MediaQuery.of(context).size.width /
+                                                1.2,
+                                            height: 40,
+                                            decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(12)),
+                                                color:
+                                                Color.fromRGBO(8, 192, 105, 1)),
+                                            child: Center(
+                                              child: Text("Отсканировать",
+                                                  style: TextStyle(
+                                                      fontSize: 20,
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Colors.white)),
+                                            ),
                                           ),
                                         ),
                                       )

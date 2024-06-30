@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fuyopia/pages/reviews_page.dart';
+import 'package:fuyopia/pages/reviews_restaurant_page.dart';
+import 'package:fuyopia/pages/reviews_waiter_page.dart';
 import 'package:fuyopia/widget/const.dart';
 
 import '../widget/avatar.dart';
@@ -122,7 +123,7 @@ class _OrderPageState extends State<OrderPage> {
                               leading: GestureDetector(
                                 onTap: () {
                                   Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) => ReviewsPage()));
+                                      MaterialPageRoute(builder: (context) => ReviewsWaiterPage()));
                                 },
                                 child: Container(
                                   width: 60,

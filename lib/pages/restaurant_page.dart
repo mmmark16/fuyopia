@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fuyopia/pages/home_page.dart';
 import 'package:fuyopia/pages/photo_user_page.dart';
 import 'package:fuyopia/pages/profile_pages/profile_page.dart';
-import 'package:fuyopia/pages/reviews_page.dart';
+import 'package:fuyopia/pages/reviews_restaurant_page.dart';
 
 import '../widget/avatar.dart';
 import '../widget/const.dart';
@@ -267,7 +267,7 @@ class _ReastaurantPageState extends State<ReastaurantPage> {
               GestureDetector(
                 onTap: (){
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ReviewsPage()));
+                      MaterialPageRoute(builder: (context) => ReviewsRestaurantPage()));
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 16.0),
