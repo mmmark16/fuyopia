@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fuyopia/pages/chat_page2.dart';
 import 'package:fuyopia/widget/const.dart';
 
 import '../widget/avatar.dart';
@@ -134,9 +135,12 @@ class _MapPageState extends State<MapPage> {
                                   ],)),
                               trailing:   Container(
                                   width:  MediaQuery.of(context).size.width/4,
-                                  child:Padding(
+                                  child:GestureDetector(
+                                      onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage2()));
+                                      },
+                                      child:Padding(
                                       padding:EdgeInsets.only(right: 20,bottom: 0),
-                                      child:SvgPicture.asset('assets/chatIcon.svg',))) ,
+                                      child:SvgPicture.asset('assets/chatIcon.svg',)))) ,
 
                             )),
                         Padding(
