@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../widget/avatar.dart';
+import '../../widget/const.dart';
+import '../profile_pages/profile_page.dart';
+
 
 class Test extends StatefulWidget {
   const Test({super.key});
@@ -15,9 +19,21 @@ class _TestState extends State {
           automaticallyImplyLeading: false,
           title: Text('Акции и скидки'),
           actions: [
-            CircleAvatar(
-              child: Icon(Icons.person),
-              radius: 24,
+            Padding(
+              padding: const EdgeInsets.only(right: 16),
+              child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ProfilePage()));
+                  },
+                  child: CustomAvatar(
+                    backColor: TColors.accent,
+                    width: 45,
+                    url: 'assets/no_avatar.png',
+                    name: "Дениска Биткоин",
+                  )),
             ),
           ],
         ),

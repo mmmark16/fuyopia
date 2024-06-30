@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import '../../widget/avatar.dart';
+import '../../widget/const.dart';
 import '../cart_pages/active_page.dart';
 import '../cart_pages/cancel_page.dart';
 import '../cart_pages/history_page.dart';
+import '../profile_pages/profile_page.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -42,10 +45,19 @@ class _CartPageState extends State<CartPage> {
                 child: Image.asset('assets/restaurant_image.png')),
             Container(
                 width: 42, height: 42, child: Image.asset('assets/Chef.png')),
-            CircleAvatar(
-              child: Icon(Icons.person),
-              radius: 24,
-            ),
+            GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ProfilePage()));
+                },
+                child: CustomAvatar(
+                  backColor: TColors.accent,
+                  width: 45,
+                  url: 'assets/no_avatar.png',
+                  name: "Дениска Биткоин",
+                ))
           ],
         ),
       ),
