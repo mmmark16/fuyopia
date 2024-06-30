@@ -78,6 +78,7 @@ flutter:
 
   assets:
     - assets/
+    - assets/bottom_bar_icon/
     - assets/fonts/
     - assets/splash_android12.png
     - assets/splash.png

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fuyopia/pages/bottom_navigator_bar_page/main_page.dart';
 import 'package:fuyopia/pages/restaurant_page.dart';
 import 'package:fuyopia/pages/bottom_navigator_bar_page/sale_page.dart';
@@ -55,60 +56,30 @@ class _MyHomePageState extends State<MyHomePage> {
         currentIndex: _selectedIndex,
         //New
         onTap: _onItemTapped,
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
-              color: Colors.white,
-            ),
-            activeIcon: Icon(
-              Icons.home,
-              color: Colors.white,
-            ),
+            icon: SvgPicture.asset('assets/bottom_bar_icon/home_unactive_icon.svg'),
+            activeIcon: SvgPicture.asset('assets/bottom_bar_icon/home_active_icon.svg'),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.favorite_border,
-              color: Colors.white,
-            ),
-            activeIcon: Icon(
-              Icons.favorite,
-              color: Colors.white,
-            ),
+            icon: SvgPicture.asset('assets/bottom_bar_icon/favourite_unactive_icon.svg'),
+            activeIcon: SvgPicture.asset('assets/bottom_bar_icon/favourite_active_icon.svg'),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.lock_open,
-              color: Colors.white,
-            ),
-            activeIcon: Icon(
-              Icons.lock,
-              color: Colors.white,
-            ),
+            icon: SvgPicture.asset('assets/bottom_bar_icon/menu_unactive_icon.svg'),
+            activeIcon: SvgPicture.asset('assets/bottom_bar_icon/menu_active_icon.svg'),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.error_outline,
-              color: Colors.white,
-            ),
-            activeIcon: Icon(
-              Icons.error,
-              color: Colors.white,
-            ),
+            icon: SvgPicture.asset('assets/bottom_bar_icon/sale_unactive_icon.svg'),
+            activeIcon: SvgPicture.asset('assets/bottom_bar_icon/sale_active_icon.svg'),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.shopping_cart_outlined,
-              color: Colors.white,
-            ),
-            activeIcon: Icon(
-              Icons.shopping_cart,
-              color: Colors.white,
-            ),
+            icon: SvgPicture.asset('assets/bottom_bar_icon/cart_unactive_icon.svg'),
+            activeIcon: SvgPicture.asset('assets/bottom_bar_icon/cart_active_icon.svg'),
             label: '',
           ),
         ],
