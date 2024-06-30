@@ -123,7 +123,7 @@ class SignUpButton extends StatelessWidget {
         onPressed: () {
           if((_passController.text!="")&(_emailController.text!="")&(_nameController.text!="")){
             Navigator.push(context, MaterialPageRoute(
-                builder: (context) => MyHomePage()));
+                builder: (context) => MyHomePage(indexPage: 0,)));
           }
 
         },

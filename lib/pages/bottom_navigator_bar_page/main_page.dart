@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fuyopia/pages/profile_pages/profile_page.dart';
 import 'package:fuyopia/widget/restauraunt_card.dart';
 import '../../widget/const.dart';
+import '../../widget/filter_button.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -84,106 +85,18 @@ class _MainPageState extends State<MainPage> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 16),
-                                        child: Container(
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: 12, horizontal: 24),
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(20)),
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2)),
-                                          child: Text("Завтрак",
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  color: Colors.white)),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 16),
-                                        child: Container(
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: 12, horizontal: 24),
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(20)),
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2)),
-                                          child: Text("Ланч",
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  color: Colors.white)),
-                                        ),
-                                      ),
-                                      Container(
-                                        padding: EdgeInsets.symmetric(
-                                            vertical: 12, horizontal: 24),
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(20)),
-                                            border: Border.all(
-                                                color: Colors.white, width: 2)),
-                                        child: Text("Закуски",
-                                            style: TextStyle(
-                                                fontSize: 12,
-                                                color: Colors.white)),
-                                      ),
+                                      FilterButton(textInButton: 'Завтрак', borderColor: Colors.white, textColor: Colors.white,),
+                                      FilterButton(textInButton: 'Ланч', borderColor: Colors.white, textColor: Colors.white,),
+                                      FilterButton(textInButton: 'Закуски', borderColor: Colors.white, textColor: Colors.white,),
                                     ],
                                   ),
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 16),
-                                      child: Container(
-                                        padding: EdgeInsets.symmetric(
-                                            vertical: 12, horizontal: 18),
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(20)),
-                                            border: Border.all(
-                                                color: Colors.white, width: 2)),
-                                        child: Text("Напитки",
-                                            style: TextStyle(
-                                                fontSize: 12,
-                                                color: Colors.white)),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 16),
-                                      child: Container(
-                                        padding: EdgeInsets.symmetric(
-                                            vertical: 12, horizontal: 18),
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(20)),
-                                            border: Border.all(
-                                                color: Colors.white, width: 2)),
-                                        child: Text("Фаст фуд",
-                                            style: TextStyle(
-                                                fontSize: 12,
-                                                color: Colors.white)),
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.symmetric(
-                                          vertical: 12, horizontal: 24),
-                                      decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(20)),
-                                          border: Border.all(
-                                              color: Colors.white, width: 2)),
-                                      child: Text("Десерт",
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              color: Colors.white)),
-                                    ),
+                                    FilterButton(textInButton: 'Напитки', borderColor: Colors.white, textColor: Colors.white,),
+                                    FilterButton(textInButton: 'Фаст фуд', borderColor: Colors.white, textColor: Colors.white,),
+                                    FilterButton(textInButton: 'Десерт', borderColor: Colors.white, textColor: Colors.white,),
                                   ],
                                 ),
                                 Padding(
@@ -200,55 +113,9 @@ class _MainPageState extends State<MainPage> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 16),
-                                        child: Container(
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: 12, horizontal: 24),
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(20)),
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2)),
-                                          child: Text("Азия",
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  color: Colors.white)),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 16),
-                                        child: Container(
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: 12, horizontal: 24),
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(20)),
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2)),
-                                          child: Text("Италия",
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  color: Colors.white)),
-                                        ),
-                                      ),
-                                      Container(
-                                        padding: EdgeInsets.symmetric(
-                                            vertical: 12, horizontal: 24),
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(20)),
-                                            border: Border.all(
-                                                color: Colors.white, width: 2)),
-                                        child: Text("Мексика",
-                                            style: TextStyle(
-                                                fontSize: 12,
-                                                color: Colors.white)),
-                                      ),
+                                      FilterButton(textInButton: 'Азия', borderColor: Colors.white, textColor: Colors.white,),
+                                      FilterButton(textInButton: 'Италия', borderColor: Colors.white, textColor: Colors.white,),
+                                      FilterButton(textInButton: 'Мексика', borderColor: Colors.white, textColor: Colors.white,),
                                     ],
                                   ),
                                 ),
@@ -257,55 +124,9 @@ class _MainPageState extends State<MainPage> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 16),
-                                        child: Container(
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: 12, horizontal: 24),
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(20)),
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2)),
-                                          child: Text("Европа",
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  color: Colors.white)),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 16),
-                                        child: Container(
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: 12, horizontal: 24),
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(20)),
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2)),
-                                          child: Text("Япония",
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  color: Colors.white)),
-                                        ),
-                                      ),
-                                      Container(
-                                        padding: EdgeInsets.symmetric(
-                                            vertical: 12, horizontal: 24),
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(20)),
-                                            border: Border.all(
-                                                color: Colors.white, width: 2)),
-                                        child: Text("Корея",
-                                            style: TextStyle(
-                                                fontSize: 12,
-                                                color: Colors.white)),
-                                      ),
+                                      FilterButton(textInButton: 'Европа', borderColor: Colors.white, textColor: Colors.white,),
+                                      FilterButton(textInButton: 'Япония', borderColor: Colors.white, textColor: Colors.white,),
+                                      FilterButton(textInButton: 'Корея', borderColor: Colors.white, textColor: Colors.white,),
                                     ],
                                   ),
                                 ),
@@ -314,42 +135,8 @@ class _MainPageState extends State<MainPage> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 16),
-                                        child: Container(
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: 12, horizontal: 24),
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(20)),
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2)),
-                                          child: Text("Бургеры",
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  color: Colors.white)),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 16),
-                                        child: Container(
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: 12, horizontal: 24),
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(20)),
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2)),
-                                          child: Text("Суши",
-                                              style: TextStyle(
-                                                  fontSize: 12,
-                                                  color: Colors.white)),
-                                        ),
-                                      ),
+                                      FilterButton(textInButton: 'Бургеры', borderColor: Colors.white, textColor: Colors.white,),
+                                      FilterButton(textInButton: 'Суши', borderColor: Colors.white, textColor: Colors.white,),
                                     ],
                                   ),
                                 ),

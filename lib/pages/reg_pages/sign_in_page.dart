@@ -117,7 +117,7 @@ class SignInButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {
 if ((_emailController.text!='')&(_passController.text!="")){Navigator.push(context, MaterialPageRoute(
-    builder: (context) => MyHomePage()));}
+    builder: (context) => MyHomePage(indexPage: 0,)));}
 
         },
         style: ElevatedButton.styleFrom(
@@ -192,7 +192,7 @@ class SkipSection extends StatelessWidget {
               /*Navigator.push(context, MaterialPageRoute(
                   builder: (context) => MyHomePage(*//*selectedIndex: 0*//*)));*/
               Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => MyHomePage()));
+                  builder: (context) => MyHomePage(indexPage: 0,)));
               },
             style: TextButton.styleFrom(
               minimumSize: Size.zero,

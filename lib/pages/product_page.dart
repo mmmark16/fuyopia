@@ -4,6 +4,7 @@ import '../widget/const.dart';
 import '../widget/ingredient_card.dart';
 import '../widget/inredient_count.dart';
 import 'dish_history.dart';
+import 'home_page.dart';
 
 int _count = 0;
 
@@ -185,7 +186,7 @@ class _ProductPageState extends State<ProductPage> {
                                 return Container(
                                     width: MediaQuery.of(context).size.width,
                                     height: MediaQuery.of(context).size.height -
-                                        MediaQuery.of(context).size.height / 8,
+                                        MediaQuery.of(context).size.height / 6,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(16),
@@ -195,9 +196,11 @@ class _ProductPageState extends State<ProductPage> {
                                     child: Column(
                                       children: [
                                         Container(
-                                          width: MediaQuery.of(context).size.width,
+                                          width:
+                                              MediaQuery.of(context).size.width,
                                           decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.all(Radius.circular(16)),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(16)),
                                             color: Color.fromRGBO(0, 32, 96, 1),
                                           ),
                                           child: Padding(
@@ -220,50 +223,96 @@ class _ProductPageState extends State<ProductPage> {
                                                 ),
                                                 Center(
                                                   child: Padding(
-                                                    padding: const EdgeInsets.only(
-                                                        top: 32, bottom: 16),
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 32,
+                                                            bottom: 16),
                                                     child: Text("Изменить",
                                                         style: TextStyle(
                                                             fontWeight:
                                                                 FontWeight.bold,
                                                             fontSize: 24,
-                                                            color: Colors.white)),
+                                                            color:
+                                                                Colors.white)),
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsets.symmetric(horizontal: 64),
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
+                                                      horizontal: 64),
                                                   child: Column(
                                                     children: [
-                                                      IngredientCount(photopath: 'assets/chicken_big.png', weight: "110гр.", name: " Курица", cost: '50руб./гр.',),
-                                                      IngredientCount(photopath: 'assets/pumpkin_big.png', weight: "110гр.", name: " Тыква", cost: '50руб./гр.',),
-                                                      IngredientCount(photopath: 'assets/lettuce_big.png', weight: "110гр.", name: " Капуста", cost: '50руб./гр.',),
+                                                      IngredientCount(
+                                                        photopath:
+                                                            'assets/chicken_big.png',
+                                                        weight: "110гр.",
+                                                        name: " Курица",
+                                                        cost: '50руб./гр.',
+                                                      ),
+                                                      IngredientCount(
+                                                        photopath:
+                                                            'assets/pumpkin_big.png',
+                                                        weight: "110гр.",
+                                                        name: " Тыква",
+                                                        cost: '50руб./гр.',
+                                                      ),
+                                                      IngredientCount(
+                                                        photopath:
+                                                            'assets/lettuce_big.png',
+                                                        weight: "110гр.",
+                                                        name: " Капуста",
+                                                        cost: '50руб./гр.',
+                                                      ),
                                                     ],
                                                   ),
                                                 ),
                                                 Row(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Column(
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
                                                       children: [
-                                                        Text('Итого',),
-                                                        Text('356руб.'),
+                                                        Text('Итого',
+                                                            style: TextStyle(
+                                                                fontSize: 14,
+                                                                color: Colors
+                                                                    .grey)),
+                                                        Text('356руб.',
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontSize: 24,
+                                                                color: Colors
+                                                                    .white)),
                                                       ],
                                                     ),
                                                     Container(
-                                                      width: 160,
+                                                      padding:
+                                                          EdgeInsets.all(16),
                                                       height: 60,
                                                       decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.only(
-                                                            topRight: Radius.circular(16),
-                                                            topLeft: Radius.circular(16)),
-                                                        color: Color.fromRGBO(8, 192, 105, 1),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    16)),
+                                                        color: Color.fromRGBO(
+                                                            8, 192, 105, 1),
                                                       ),
-                                                      child: Center(child: Text('Изменить блюдо', style: TextStyle(
-                                                          fontWeight:
-                                                          FontWeight.bold,
-                                                          fontSize: 14,
-                                                          color: Colors.white))),
+                                                      child: Center(
+                                                          child: Text(
+                                                              'Изменить блюдо',
+                                                              style: TextStyle(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  fontSize: 18,
+                                                                  color: Colors
+                                                                      .white))),
                                                     ),
                                                   ],
                                                 ),
@@ -272,9 +321,49 @@ class _ProductPageState extends State<ProductPage> {
                                           ),
                                         ),
                                         Container(
-                                          width: MediaQuery.of(context).size.width,
-                                          height: MediaQuery.of(context).size.height/7,
-                                          color: Colors.white,
+                                          width:
+                                              MediaQuery.of(context).size.width,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height /
+                                              10,
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.end,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsets.only(right: 32),
+                                                child: GestureDetector(
+                                                  onTap:(){
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (context) => MyHomePage(indexPage: 4,)));
+                                                  },
+                                                  child: Container(
+                                                    padding: EdgeInsets.symmetric(horizontal: 16),
+                                                    height: 60,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius: BorderRadius.all(
+                                                          Radius.circular(16)),
+                                                      border: Border.all(
+                                                          color: Color.fromRGBO(
+                                                              230, 220, 205, 1),
+                                                          width: 2),
+                                                      color: Colors.white,
+                                                    ),
+                                                    child: Center(
+                                                        child: Text('Корзина',
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight.bold,
+                                                                fontSize: 18,
+                                                                color: Color.fromRGBO(
+                                                                    8, 192, 105, 1)))),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ],
                                     ));
@@ -329,21 +418,29 @@ class _ProductPageState extends State<ProductPage> {
                                   fontWeight: FontWeight.bold))),
                     ),
                   ),
-                  Container(
-                    height: 50,
-                    width: MediaQuery.of(context).size.width / 4,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        border: Border.all(
-                          color: Color.fromRGBO(230, 220, 205, 1),
-                          width: 2,
-                        )),
-                    child: Center(
-                        child: Text("Корзина",
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: Color.fromRGBO(8, 192, 105, 1),
-                                fontWeight: FontWeight.bold))),
+                  GestureDetector(
+                    onTap:(){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MyHomePage(indexPage: 4,)));
+                    },
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width / 4,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          border: Border.all(
+                            color: Color.fromRGBO(230, 220, 205, 1),
+                            width: 2,
+                          )),
+                      child: Center(
+                          child: Text("Корзина",
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Color.fromRGBO(8, 192, 105, 1),
+                                  fontWeight: FontWeight.bold))),
+                    ),
                   ),
                 ],
               ),

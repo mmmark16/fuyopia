@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../../widget/const.dart';
+import '../../widget/filter_button.dart';
 import '../../widget/food_card.dart';
 import '../../widget/sushi_card.dart';
 import '../chef_page.dart';
@@ -65,7 +67,7 @@ class _MenuPageState extends State<MenuPage> {
                   children: [
                     Container(
                         width: MediaQuery.of(context).size.width / 1.4,
-                        height: 50,
+                        height: 55,
                         decoration: BoxDecoration(
                             border: Border.all(
                               color: Colors.black,
@@ -83,18 +85,160 @@ class _MenuPageState extends State<MenuPage> {
                             ),
                           ),
                         )),
-                    Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.black,
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.all(Radius.circular(20))),
-                      child: Icon(
-                        Icons.toc,
-                        color: Color.fromRGBO(0, 32, 96, 1),
+                    GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                            context: context,
+                            backgroundColor: Colors.transparent,
+                            isScrollControlled: true,
+                            useRootNavigator: true,
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                              ),
+                            ),
+                            builder: (BuildContext context) {
+                              return Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  height: MediaQuery.of(context).size.height -
+                                      MediaQuery.of(context).size.height / 15,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(16),
+                                        topLeft: Radius.circular(16)),
+                                    color: Colors.white,
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(16),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Center(
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(top: 16),
+                                            child: Container(
+                                              width: 60,
+                                              height: 4,
+                                              decoration: BoxDecoration(
+                                                color: TColors.accent,
+                                                borderRadius: BorderRadius.circular(
+                                                    defRadiusOther),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Center(
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                top: 32, bottom: 16),
+                                            child: Text("Фильтр",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 24,
+                                                    color: Colors.black)),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(bottom: 16),
+                                          child: Text("Категории",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 24,
+                                                  color: Colors.black)),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(bottom: 16),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            children: [
+                                              FilterButton(textInButton: 'Завтрак', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
+                                              FilterButton(textInButton: 'Ланч', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
+                                              FilterButton(textInButton: 'Закуски', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
+                                            ],
+                                          ),
+                                        ),
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          children: [
+                                            FilterButton(textInButton: 'Напитки', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
+                                            FilterButton(textInButton: 'Фаст фуд', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
+                                            FilterButton(textInButton: 'Десерт', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
+                                          ],
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              bottom: 16, top: 36),
+                                          child: Text("Кухня",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 24,
+                                                  color: Colors.black)),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(bottom: 16),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            children: [
+                                              FilterButton(textInButton: 'Азия', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
+                                              FilterButton(textInButton: 'Италия', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
+                                              FilterButton(textInButton: 'Мексика', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
+                                            ],
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(bottom: 16),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            children: [
+                                              FilterButton(textInButton: 'Европа', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
+                                              FilterButton(textInButton: 'Япония', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
+                                              FilterButton(textInButton: 'Корея',borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
+                                            ],
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(bottom: 16),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            children: [
+                                              FilterButton(textInButton: 'Бургеры', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
+                                              FilterButton(textInButton: 'Суши', borderColor: Color.fromRGBO(0, 32, 96, 1), textColor: Colors.grey,),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          width: MediaQuery.of(context).size.width,
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                              BorderRadius.all(Radius.circular(12)),
+                                              color: Color.fromRGBO(8, 192, 105, 1)),
+                                          child: Center(
+                                            child: Text("Фильтровать",
+                                                style: TextStyle(
+                                                    fontSize: 16, color: Colors.white)),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ));
+                            });
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(16),
+                        width: 55,
+                        height: 55,
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.black,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.all(Radius.circular(20))),
+                        child: Container(
+                            child: SvgPicture.asset(
+                              "assets/filter_icon_green.svg",
+                            )),
                       ),
                     ),
                   ],
@@ -217,7 +361,6 @@ class _MenuPageState extends State<MenuPage> {
                             children: [
                               SushiCard(),
                               SushiCard(),
-
                             ],
                           ),
                         ),
@@ -241,7 +384,6 @@ class _MenuPageState extends State<MenuPage> {
                             ],
                           ),
                         ),
-
                       ],
               ),
             ],

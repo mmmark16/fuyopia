@@ -179,7 +179,7 @@ class _PassPageState extends State<PassPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => MyHomePage()));
+                                  builder: (context) => MyHomePage(indexPage: 0,)));
                         }
                       },
                       bgColor: TColors.accentLight,

@@ -9,9 +9,8 @@ import 'bottom_navigator_bar_page/favorite_page.dart';
 import 'bottom_navigator_bar_page/menu_page.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({super.key, /*required selectedIndex*/});
-
-  //int selectedIndex = 0;
+  final int indexPage;
+  MyHomePage({super.key, required this.indexPage,});
 
 
   @override
@@ -19,7 +18,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedIndex = 0;
+
+  late int _selectedIndex = widget.indexPage;
   static const List<Widget> _widgetOptions = <Widget>[
     MainPage(),
     FavoritePage(),
