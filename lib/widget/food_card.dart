@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
-class FoodCard extends StatelessWidget {
+bool _isFavorite = false;
+
+class FoodCard extends StatefulWidget {
   final String photoPath;
   const FoodCard({super.key, required this.photoPath});
 
+  @override
+  State<FoodCard> createState() => _FoodCardState();
+}
 
+class _FoodCardState extends State<FoodCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,16 +24,26 @@ class FoodCard extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.topRight,
-            child: Container(
-              width: 36,
-              height: 36,
-              decoration: BoxDecoration(
-                  borderRadius:
-                  BorderRadius.all(Radius.circular(12)),
-                  color: Color.fromRGBO(8, 192, 105, 1)),
-              child: Icon(
-                Icons.favorite_border,
-                color: Color.fromRGBO(0, 32, 96, 1),
+            child: GestureDetector(
+              onTap: (){
+                _isFavorite = !_isFavorite;
+                setState(() {
+                });
+              },
+              child: Container(
+                width: 36,
+                height: 36,
+                decoration: BoxDecoration(
+                    borderRadius:
+                    BorderRadius.all(Radius.circular(12)),
+                    color: Color.fromRGBO(8, 192, 105, 1)),
+                child: _isFavorite == true ? Icon(
+                  Icons.favorite,
+                  color: Color.fromRGBO(0, 32, 96, 1),
+                ) : Icon(
+                  Icons.favorite_border,
+                  color: Color.fromRGBO(0, 32, 96, 1),
+                ),
               ),
             ),
           ),
@@ -64,12 +80,28 @@ class FoodCard extends StatelessWidget {
                       bottomRight: Radius.circular(20)),
                   image: DecorationImage(
                     image: AssetImage(
-                      photoPath,
+                      widget.photoPath,
                     ),
                     fit: BoxFit.fill,
                   )),
             ),
-          )
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Container(
+              width: 36,
+              height: 36,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(12)),
+                  color: Color.fromRGBO(
+                      132, 189, 147, 1)),
+              child: Icon(
+                Icons.add,
+                color: Colors.white,
+              ),
+            ),
+          ),
         ],
       ),
     );

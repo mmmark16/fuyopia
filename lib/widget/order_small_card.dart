@@ -39,7 +39,7 @@ class OrderSmallCard extends StatelessWidget {
                       child: Center(
                         child: Text(
                           '320 ккал', style: TextStyle(
-                            fontSize: 14
+                            fontSize: 13
                         ),
                         ),
                       ),
@@ -56,7 +56,7 @@ class OrderSmallCard extends StatelessWidget {
                       child: Center(
                         child: Text(
                           '120 грамм', style: TextStyle(
-                            fontSize: 14
+                            fontSize: 13
                         ),
                         ),
                       ),
@@ -73,7 +73,7 @@ class OrderSmallCard extends StatelessWidget {
                         Icon(Icons.star, color: Color.fromRGBO(239, 136, 41, 1),),
                         Text(
                           '5.0', style: TextStyle(
-                            fontSize: 14
+                            fontSize: 13
                         ),
                         ),
                       ],

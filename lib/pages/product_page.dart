@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../widget/const.dart';
 import '../widget/ingredient_card.dart';
-import '../widget/inredient_count.dart';
+import '../widget/ingredient_count.dart';
 import 'dish_history.dart';
 import 'home_page.dart';
 
