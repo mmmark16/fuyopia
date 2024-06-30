@@ -7,6 +7,7 @@ import 'dish_history.dart';
 import 'home_page.dart';
 
 int _count = 0;
+bool _isFavorite = false;
 
 class ProductPage extends StatefulWidget {
   const ProductPage({super.key});
@@ -42,50 +43,110 @@ class _ProductPageState extends State<ProductPage> {
                           color: Colors.black,
                         )),
                   ),
-                  SvgPicture.asset(
-                    'assets/big_dish.svg',
-                  ),
-                  Container(
-                    height: 40,
-                    width: 100,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(16),
-                        ),
-                        color: Color.fromRGBO(255, 226, 205, 1)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  Stack(
+                    alignment: AlignmentDirectional.center,
                       children: [
-                        GestureDetector(
-                            onTap: () {
-                              if (_count == 1) {
-                              } else {
-                                _count = _count - 1;
-                                print(_count);
-                                setState(() {});
-                              }
-                            },
-                            child: Icon(
-                              Icons.remove,
-                              color: Colors.black,
-                            )),
-                        Text(_count.toString(),
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold)),
-                        GestureDetector(
-                            onTap: () {
-                              _count = _count + 1;
-                              print(_count);
-                              setState(() {});
-                            },
-                            child: Icon(
-                              Icons.add,
-                              color: Colors.black,
-                            ))
-                      ],
+                    SvgPicture.asset(
+                      'assets/big_dish.svg',
                     ),
-                  ),
+                        Positioned(
+                          left: 200,
+                          top: 160,
+                          child: Container(
+                            child: Container(
+                              height: MediaQuery.of(context).size.height/7,
+                              child: Row(
+                                children: [
+                                  Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: GestureDetector(
+                                      onTap: (){
+                                        _isFavorite = ! _isFavorite;
+                                        setState(() {
+                                        });
+                                      },
+                                      child: Container(
+                                        width: 45,
+                                        height: 45,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                            BorderRadius.all(Radius.circular(12)),
+                                            color: TColors.accent),
+                                        child: _isFavorite == true ? Icon(
+                                          Icons.favorite,
+                                          color: Colors.white,
+                                        ) : Icon(
+                                          Icons.favorite_border,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(bottom: 40),
+                                    child: Container(
+                                      width: 55,
+                                      height: 55,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                          BorderRadius.all(Radius.circular(12)),
+                                          color: TColors.surface),
+                                      child: Icon(
+                                        Icons.add,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          top: 300,
+                          child: Container(
+                            height: 40,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(16),
+                                ),
+                                color: Color.fromRGBO(255, 226, 205, 1)),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                GestureDetector(
+                                    onTap: () {
+                                      if (_count == 1) {
+                                      } else {
+                                        _count = _count - 1;
+                                        setState(() {});
+                                      }
+                                    },
+                                    child: Icon(
+                                      Icons.remove,
+                                      color: Colors.black,
+                                    )),
+                                Text(_count.toString(),
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold)),
+                                GestureDetector(
+                                    onTap: () {
+                                      _count = _count + 1;
+                                      print(_count);
+                                      setState(() {});
+                                    },
+                                    child: Icon(
+                                      Icons.add,
+                                      color: Colors.black,
+                                    ))
+                              ],
+                            ),
+                          ),
+                        ),
+                  ]),
+
                   Padding(
                     padding: const EdgeInsets.only(top: 24.0, bottom: 16),
                     child: Row(
@@ -328,23 +389,34 @@ class _ProductPageState extends State<ProductPage> {
                                                   .height /
                                               10,
                                           child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.end,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsets.only(right: 32),
+                                                padding: const EdgeInsets.only(
+                                                    right: 32),
                                                 child: GestureDetector(
-                                                  onTap:(){
+                                                  onTap: () {
                                                     Navigator.push(
                                                         context,
                                                         MaterialPageRoute(
-                                                            builder: (context) => MyHomePage(indexPage: 4,)));
+                                                            builder:
+                                                                (context) =>
+                                                                    MyHomePage(
+                                                                      indexPage:
+                                                                          4,
+                                                                    )));
                                                   },
                                                   child: Container(
-                                                    padding: EdgeInsets.symmetric(horizontal: 16),
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 16),
                                                     height: 60,
                                                     decoration: BoxDecoration(
-                                                      borderRadius: BorderRadius.all(
-                                                          Radius.circular(16)),
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                              Radius.circular(
+                                                                  16)),
                                                       border: Border.all(
                                                           color: Color.fromRGBO(
                                                               230, 220, 205, 1),
@@ -355,10 +427,15 @@ class _ProductPageState extends State<ProductPage> {
                                                         child: Text('Корзина',
                                                             style: TextStyle(
                                                                 fontWeight:
-                                                                    FontWeight.bold,
+                                                                    FontWeight
+                                                                        .bold,
                                                                 fontSize: 18,
-                                                                color: Color.fromRGBO(
-                                                                    8, 192, 105, 1)))),
+                                                                color: Color
+                                                                    .fromRGBO(
+                                                                        8,
+                                                                        192,
+                                                                        105,
+                                                                        1)))),
                                                   ),
                                                 ),
                                               ),
@@ -419,11 +496,13 @@ class _ProductPageState extends State<ProductPage> {
                     ),
                   ),
                   GestureDetector(
-                    onTap:(){
+                    onTap: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => MyHomePage(indexPage: 4,)));
+                              builder: (context) => MyHomePage(
+                                    indexPage: 4,
+                                  )));
                     },
                     child: Container(
                       height: 50,
