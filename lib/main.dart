@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-      //  fontFamily: 'Montserrat',
+        fontFamily: 'Montserrat',
         appBarTheme: const AppBarTheme(
           scrolledUnderElevation: 0,
           elevation: 0,
