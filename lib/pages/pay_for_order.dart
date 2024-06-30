@@ -15,9 +15,11 @@ class _PayForOrderState extends State<PayForOrder> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Color.fromRGBO(0, 32, 96, 1),
         title: Text(
           'Подтверждение заказа',
+          textAlign: TextAlign.center,
           style: TextStyle(
               color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22),
         ),
@@ -57,7 +59,7 @@ class _PayForOrderState extends State<PayForOrder> {
                         'Итого',
                         style: TextStyle(
                             color: Color.fromRGBO(150, 150, 150, 1),
-                            fontSize: 22),
+                            fontSize: 14),
                       ),
                       Text(
                         '1.254руб.',
@@ -153,16 +155,26 @@ class _PayForOrderState extends State<PayForOrder> {
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 62,
+                  padding: EdgeInsets.only(left: 12,right: 12),
+
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(24)),
                       color: Color.fromRGBO(150, 150, 150, 0.5)),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text('Комментарий к заказу',
-                          style: TextStyle(color: Colors.white, fontSize: 16)),
+                  child: TextField(
+style:TextStyle(
+    fontSize: 14.0,
+    fontWeight: FontWeight.w400,color: Colors.white
+) ,
+                    onChanged: (val) {},
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.zero,
+                      border: InputBorder.none,
+                      hintText: "Комментарий к заказу",
+
+                      hintStyle: TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w400,color: Colors.white
+                      ),
                     ),
                   ),
                 ),
