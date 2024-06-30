@@ -19,17 +19,21 @@ class MenuPage extends StatefulWidget {
 SfRangeValues _values = SfRangeValues( _valStart, _valEnd);
 int _valStart = 500;
 int _valEnd = 3000;
-
+bool _isHot = true;
+bool _isDesert = false;
+bool _isDrink = false;
+bool _isSnacks = false;
+bool _isSushi = false;
 
 class _MenuPageState extends State<MenuPage> {
-  bool isSushi = false;
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: Icon(Icons.arrow_back_ios_new),
+        leading: IconButton(icon:Icon(Icons.arrow_back_ios_new), onPressed:(){Navigator.pop(context);} ,),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -38,10 +42,10 @@ class _MenuPageState extends State<MenuPage> {
               children: [
                 Text("Ресторан 1",
                     style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 21)),
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                 Text(
                   "часы работ",
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 13),
                 ),
               ],
             ),
@@ -77,7 +81,7 @@ class _MenuPageState extends State<MenuPage> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(bottom: 32.0),
+                padding: const EdgeInsets.only(bottom: 20.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -91,15 +95,31 @@ class _MenuPageState extends State<MenuPage> {
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 24.0),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "Поиск",
-                              style: TextStyle(fontSize: 24),
+                        child:Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 0,
+                              ),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width / 2,
+                                child: TextField(
+                                  onChanged: (val) {},
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: "Поиск",
+                                    hintStyle: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
+                            SvgPicture.asset(
+                              'assets/search.svg',
+                            ),
+                          ],
                         )),
                     GestureDetector(
                       onTap: () {
@@ -410,7 +430,7 @@ class _MenuPageState extends State<MenuPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 32.0),
+                padding: const EdgeInsets.only(bottom: 20.0, ),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
@@ -418,62 +438,201 @@ class _MenuPageState extends State<MenuPage> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          isSushi = false;
+                          _isHot = true;
+                          _isDesert = false;
+                          _isDrink = false;
+                          _isSnacks = false;
+                          _isSushi = false;
                           setState(() {});
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 16.0),
-                          child: Text(
-                            'Горячее',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 16.0),
-                        child: Text(
-                          'Десерт',
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 16.0),
-                        child: Text(
-                          'Напитки',
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 16.0),
-                        child: Text(
-                          'Закуски',
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 16.0),
+                              child: Text(
+                                'Горячее',
+                                style: _isHot
+                                    ? TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)
+                                    : TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold,color: Colors.grey),
+                              ),
+                            ),
+                            Container(
+                              height: 5,
+                              width: 30,
+                              decoration: BoxDecoration(
+                                  color: _isHot
+                                      ? TColors.accentLight
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(100))),
+                            )
+                          ],
                         ),
                       ),
                       GestureDetector(
                         onTap: () {
-                          isSushi = true;
+                          _isHot = false;
+                          _isDesert = true;
+                          _isDrink = false;
+                          _isSnacks = false;
+                          _isSushi = false;
                           setState(() {});
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 16.0),
-                          child: Text(
-                            'Суши',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 16.0),
+                              child: Text(
+                                'Десерт',
+                                style: _isDesert
+                                    ? TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)
+                                    : TextStyle(
+                                    fontSize: 16, color: Colors.grey,fontWeight: FontWeight.bold,),
+                              ),
+                            ),
+                            Container(
+                              height: 5,
+                              width: 30,
+                              decoration: BoxDecoration(
+                                  color: _isDesert
+                                      ? TColors.accentLight
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(100))),
+                            )
+                          ],
                         ),
                       ),
+                      GestureDetector(
+                        onTap: () {
+                          _isHot = false;
+                          _isDesert = false;
+                          _isDrink = true;
+                          _isSnacks = false;
+                          _isSushi = false;
+                          setState(() {});
+                        },
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 16.0),
+                              child: Text(
+                                'Напитки',
+                                style: _isDrink
+                                    ? TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)
+                                    : TextStyle(
+                                    fontSize: 16, color: Colors.grey,fontWeight: FontWeight.bold,),
+                              ),
+                            ),
+                            Container(
+                              height: 5,
+                              width: 30,
+                              decoration: BoxDecoration(
+                                  color: _isDrink
+                                      ? TColors.accentLight
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(100))),
+                            )
+                          ],
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          _isHot = false;
+                          _isDesert = false;
+                          _isDrink = false;
+                          _isSnacks = true;
+                          _isSushi = false;
+                          setState(() {});
+                        },
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 16.0),
+                              child: Text(
+                                'Закуски',
+                                style: _isSnacks
+                                    ? TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)
+                                    : TextStyle(
+                                    fontSize: 16, color: Colors.grey,fontWeight: FontWeight.bold,),
+                              ),
+                            ),
+                            Container(
+                              height: 5,
+                              width: 30,
+                              decoration: BoxDecoration(
+                                  color: _isSnacks
+                                      ? TColors.accentLight
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(100))),
+                            )
+                          ],
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          _isHot = false;
+                          _isDesert = false;
+                          _isDrink = false;
+                          _isSnacks = false;
+                          _isSushi = true;
+                          setState(() {});
+                        },
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 16.0),
+                              child: Text(
+                                'Суши',
+                                style: _isSushi
+                                    ? TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)
+                                    : TextStyle(
+                                    fontSize: 16, color: Colors.grey,fontWeight: FontWeight.bold,),
+                              ),
+                            ),
+                            Container(
+                              height: 5,
+                              width: 30,
+                              decoration: BoxDecoration(
+                                  color: _isSushi
+                                      ? TColors.accentLight
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(100))),
+                            )
+                          ],
+                        ),
+                      ),
+
                     ],
                   ),
                 ),
               ),
               Column(
-                children: !isSushi
+                children: !_isSushi
                     ? [
                         Padding(
                           padding: const EdgeInsets.only(bottom: 22.0),

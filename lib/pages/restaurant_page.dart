@@ -20,7 +20,7 @@ class _ReastaurantPageState extends State<ReastaurantPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios_new),
+        leading: IconButton(icon:Icon(Icons.arrow_back_ios_new), onPressed:(){Navigator.pop(context);} ,),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -29,10 +29,10 @@ class _ReastaurantPageState extends State<ReastaurantPage> {
               children: [
                 Text("Ресторан 1",
                     style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 21)),
+                        TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
                 Text(
                   "часы работ",
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 13),
                 ),
               ],
             ),
@@ -42,7 +42,7 @@ class _ReastaurantPageState extends State<ReastaurantPage> {
             ),
             Text(
               "8.5",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
             ),
             Image.asset('assets/Place_marker.png'),
             GestureDetector(
