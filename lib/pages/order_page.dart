@@ -168,7 +168,7 @@ class _OrderPageState extends State<OrderPage> {
                                           child: GestureDetector(
                                             onTap: () {
                                               Navigator.push(context,
-                                                  MaterialPageRoute(builder: (context) => ChatPage2()));
+                                                  MaterialPageRoute(builder: (context) => ChatPage2(workerName: 'Официант',)));
                                             },
                                             child: SvgPicture.asset(
                                               'assets/chatIcon.svg',
