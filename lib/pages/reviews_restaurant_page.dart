@@ -13,7 +13,9 @@ class ReviewsRestaurantPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios_new),
+        leading:  GestureDetector(
+            onTap: (){Navigator.pop(context);},
+            child:Icon(Icons.arrow_back_ios_new)),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -200,9 +202,18 @@ class ReviewsRestaurantPage extends StatelessWidget {
                 ],
               ),
             ),
-            Review(),
-            Review(),
-            Review(),
+            Padding(
+              padding: const EdgeInsets.only(left: 12,right: 12),
+              child: Review(),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 12,right: 12),
+              child: Review(),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 12,right: 12),
+              child: Review(),
+            ),
             Padding(
               padding: const EdgeInsets.only(top: 16.0, bottom: 16),
               child: Icon(Icons.arrow_downward),

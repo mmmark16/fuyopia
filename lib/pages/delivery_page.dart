@@ -13,7 +13,9 @@ class DeliveryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios_new),
+        leading: GestureDetector(
+            onTap: (){Navigator.pop(context);},
+            child:Icon(Icons.arrow_back_ios_new)),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -53,43 +55,42 @@ class DeliveryPage extends StatelessWidget {
           ],
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 32.0),
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: 60,
-                color: Color.fromRGBO(65, 195, 216, 1),
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 32.0),
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      "Доставка",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Colors.white),
-                    ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 32.0),
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: 60,
+              color: Color.fromRGBO(65, 195, 216, 1),
+              child: Padding(
+                padding: const EdgeInsets.only(right: 32.0),
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    "Доставка",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: Colors.white),
                   ),
                 ),
               ),
             ),
-            Container(
-              height: MediaQuery.of(context).size.height/1.5,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  DeliveryCard(photoPath: 'assets/delivery_logo.png', deliveryName: 'delivery-club', available: 'Доступно',),
-                  DeliveryCard(photoPath: 'assets/yandeks_logo.png', deliveryName: 'yandex-еда', available: 'Недоступно',),
-                  DeliveryCard(photoPath: 'assets/pwa_logo.png', deliveryName: 'От ресторана', available: 'Доступно',),
-                ],
-              ),
+          ),
+          Expanded(child:Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                DeliveryCard(photoPath: 'assets/delivery_logo.png', deliveryName: 'delivery-club', available: 'Доступно',),
+                DeliveryCard(photoPath: 'assets/yandeks_logo.png', deliveryName: 'yandex-еда', available: 'Недоступно',),
+                DeliveryCard(photoPath: 'assets/pwa_logo.png', deliveryName: 'От ресторана', available: 'Доступно',),
+              ],
             ),
-          ],
-        ),      ),
+          )),
+        ],
+      ),
     );
   }
 }

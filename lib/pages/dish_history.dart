@@ -7,7 +7,9 @@ class DishHistoryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios_new),
+        leading:  GestureDetector(
+            onTap: (){Navigator.pop(context);},
+            child:Icon(Icons.arrow_back_ios_new)),
         title: Text("Курица с овощами"),
       ),
       body: Padding(

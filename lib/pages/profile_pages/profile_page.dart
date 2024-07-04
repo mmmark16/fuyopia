@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fuyopia/widget/const.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../widget/avatar.dart';
 import '../../widget/custom_button.dart';
@@ -35,7 +36,7 @@ TextEditingController _adressController = TextEditingController();
 TextEditingController _cardNumController = TextEditingController();
 TextEditingController _dateCardController = TextEditingController();
 TextEditingController _cvcController = TextEditingController();
-
+ImagePicker picker = ImagePicker();
 class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
@@ -351,7 +352,11 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             Align(
                                 alignment: Alignment.bottomRight,
-                                child: SvgPicture.asset('assets/foto.svg'))
+                                child: GestureDetector(
+                                    onTap: () async {
+
+                                      XFile? image = await picker.pickImage(source: ImageSource.gallery);},
+                                    child:SvgPicture.asset('assets/foto.svg')))
                           ],
                         ),
                       )

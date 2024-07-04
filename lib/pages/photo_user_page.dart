@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fuyopia/pages/profile_pages/profile_page.dart';
+
+import '../widget/avatar.dart';
+import '../widget/const.dart';
 
 class PhotoUserPage extends StatelessWidget {
   const PhotoUserPage({super.key});
@@ -8,7 +12,9 @@ class PhotoUserPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios_new),
+        leading: GestureDetector(
+            onTap: (){Navigator.pop(context);},
+            child:Icon(Icons.arrow_back_ios_new)),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -17,10 +23,10 @@ class PhotoUserPage extends StatelessWidget {
               children: [
                 Text("Ресторан 1",
                     style:
-                    TextStyle(fontWeight: FontWeight.bold, fontSize: 21)),
+                    TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                 Text(
                   "часы работ",
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 13),
                 ),
               ],
             ),
@@ -30,22 +36,22 @@ class PhotoUserPage extends StatelessWidget {
             ),
             Text(
               "8.5",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
             ),
-            Icon(
-              Icons.location_on,
-              size: 36,
-              color: Color.fromRGBO(
-                252,
-                202,
-                126,
-                1,
-              ),
-            ),
-            CircleAvatar(
-              child: Icon(Icons.person),
-              radius: 24,
-            ),
+          Image.asset('assets/Place_marker.png'),
+            GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ProfilePage()));
+                },
+                child: CustomAvatar(
+                  backColor: TColors.accent,
+                  width: 45,
+                  url: 'assets/no_avatar.png',
+                  name: "Дениска Биткоин",
+                )),
           ],
         ),
       ),

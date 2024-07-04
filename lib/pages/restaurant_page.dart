@@ -125,7 +125,10 @@ class _ReastaurantPageState extends State<ReastaurantPage> {
                           ),
                           Align(
                             alignment: Alignment.topRight,
-                            child: Container(
+                            child: GestureDetector(
+                                onTap: (){Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) => MyHomePage(indexPage: 2,)));},
+                                child:Container(
                               width: MediaQuery.of(context).size.width / 4.5,
                               height: 36,
                               decoration: BoxDecoration(
@@ -139,7 +142,7 @@ class _ReastaurantPageState extends State<ReastaurantPage> {
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white)),
                               ),
-                            ),
+                            )),
                           ),
                         ],
                       ),

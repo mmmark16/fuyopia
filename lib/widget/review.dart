@@ -5,7 +5,28 @@ class Review extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return
+    ListTile(
+      contentPadding: EdgeInsets.zero,
+      leading:Image.asset('assets/friend_big.png'),
+      title: Container(
+        width: MediaQuery.of(context).size.width/1.5,
+        child:Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text("Игорь",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16,), ),
+          Row(
+            children: [
+              Icon(Icons.star, color: Color.fromRGBO(239, 136, 41, 1),),
+              Text("5.0")
+            ],
+          )
+        ],
+      ),),
+      subtitle:    Text("Я бы ходил чаще, но я не миллионер!",style: TextStyle(fontSize: 14,), overflow: TextOverflow.ellipsis,),
+
+    );
+    /*Padding(
       padding: const EdgeInsets.only(top: 32),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -37,6 +58,6 @@ class Review extends StatelessWidget {
           )
         ],
       ),
-    );
+    );*/
   }
 }

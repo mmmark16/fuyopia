@@ -38,10 +38,9 @@ class _ProductPageState extends State<ProductPage> {
                     padding: const EdgeInsets.only(left: 16.0, top: 64),
                     child: Align(
                         alignment: Alignment.topLeft,
-                        child: Icon(
-                          Icons.arrow_back_ios_new,
-                          color: Colors.black,
-                        )),
+                        child:  GestureDetector(
+                            onTap: (){Navigator.pop(context);},
+                            child:Icon(Icons.arrow_back_ios_new)),),
                   ),
                   Stack(alignment: AlignmentDirectional.center, children: [
                     SvgPicture.asset(

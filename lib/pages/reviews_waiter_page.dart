@@ -7,13 +7,16 @@ import '../widget/const.dart';
 import '../widget/review.dart';
 
 class ReviewsWaiterPage extends StatelessWidget {
-  const ReviewsWaiterPage({super.key});
+  final String workerName;
+  const ReviewsWaiterPage({super.key, required this.workerName});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios_new),
+        leading: GestureDetector(
+            onTap: (){Navigator.pop(context);},
+            child:Icon(Icons.arrow_back_ios_new)),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -27,9 +30,10 @@ class ReviewsWaiterPage extends StatelessWidget {
                   ),
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Официант",
+                      workerName,
                       style: TTextStyle.t60014.copyWith(color: TColors.dark),
                     ),
                     Text("Дэвид Гетта",
@@ -58,6 +62,7 @@ class ReviewsWaiterPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              SizedBox(height: 24,),
               Review(),
               Review(),
               Review(),
@@ -124,7 +129,7 @@ class ReviewsWaiterPage extends StatelessWidget {
                                             'assets/friend2.png',
                                           ),
                                           title: Text(
-                                            "Официант",
+                                            workerName,
                                             style: TTextStyle.t60014.copyWith(color: TColors.dark),
                                           ),
                                           subtitle: Text("Дэвид Гетта",

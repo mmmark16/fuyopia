@@ -19,7 +19,9 @@ class _ChefPageState extends State<ChefPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(Icons.arrow_back_ios_new),
+                GestureDetector(
+                onTap: (){Navigator.pop(context);},
+        child:Icon(Icons.arrow_back_ios_new)),
                 Container(
                     width: 42,
                     height: 42,

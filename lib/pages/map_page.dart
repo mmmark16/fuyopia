@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fuyopia/pages/chat_page2.dart';
+import 'package:fuyopia/pages/reviews_waiter_page.dart';
 import 'package:fuyopia/widget/const.dart';
 
 import '../widget/avatar.dart';
 import '../widget/custom_button.dart';
+import 'home_page.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
@@ -118,14 +120,17 @@ class _MapPageState extends State<MapPage> {
                             width:  MediaQuery.of(context).size.width,
                             child:  ListTile(
                               contentPadding: EdgeInsets.zero,
-                              leading:   Container(
+                              leading:  GestureDetector(
+                                  onTap: (){  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) => ReviewsWaiterPage( workerName: "Курьер",)));},
+                                  child: Container(
                                 width: 60,
                                 height: 60,
 
                                 child:
                                 Image.asset('assets/friend2.png',)
                                 ,
-                              ),
+                              )),
                               title: Text("Курьер",style: TTextStyle.t60014.copyWith(color: TColors.primary),),
                               subtitle:Container(
                                   width:  MediaQuery.of(context).size.width/4,
@@ -147,7 +152,8 @@ class _MapPageState extends State<MapPage> {
                           padding: const EdgeInsets.fromLTRB(defPadding, 20, 0, 20),
                           child: CustomButton(
 
-                            onPressed: (){},
+                            onPressed: (){{Navigator.push(context, MaterialPageRoute(
+                                builder: (context) => MyHomePage(indexPage: 0,)));}},
                             bgColor: TColors.accentLight,
                             padding: const EdgeInsets.symmetric(vertical: 14),
                             child: Padding(

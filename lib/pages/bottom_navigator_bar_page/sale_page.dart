@@ -37,99 +37,102 @@ class _TestState extends State {
             ),
           ],
         ),
-        body: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Container(
-                    child: Stack(
-                      children: [
-                        Image.asset('assets/sale1.png'),
-                        Positioned(
-                          left: 16,
-                          top: 50,
-                          child: Row(
-                            children: [
-                              Text('1', style: TextStyle(fontSize: 32, color: Colors.white, fontWeight: FontWeight.bold),),
-                              SizedBox(
-                                width: 10,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset('assets/sale_card_1.png'),
+              Image.asset('assets/sale_card_2.png'),
+              Image.asset('assets/sale_card_3.png'),
+
+              /*Padding(
+                padding: const EdgeInsets.all(16),
+                child: Container(
+                  child: Stack(
+                    children: [
+                      Image.asset('assets/sale1.png'),
+                      Positioned(
+                        left: 16,
+                        top: 50,
+                        child: Row(
+                          children: [
+                            Text('1', style: TextStyle(fontSize: 32, color: Colors.white, fontWeight: FontWeight.bold),),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width/2.8,
+                              child: Text(
+                                  'доставка бесплатно', style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold)
                               ),
-                              Container(
-                                width: MediaQuery.of(context).size.width/2.8,
-                                child: Text(
-                                    'доставка бесплатно', style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold)
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Container(
-                    child: Stack(
-                      alignment: Alignment.bottomLeft,
-                      children: [
-                        Image.asset('assets/sale2.png'),
-                        Image.asset('assets/sale22.png'),
-                        Positioned(
-                          left: 190,
-                          top: 80,
-                          child: Row(
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width/2.5,
-                                child: Text(
-                                    'Карта лояльности', style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Container(
+                  child: Stack(
+                    alignment: Alignment.bottomLeft,
+                    children: [
+                      Image.asset('assets/sale2.png'),
+                      Image.asset('assets/sale22.png'),
+                      Positioned(
+                        left: 190,
+                        top: 80,
+                        child: Row(
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width/2.5,
+                              child: Text(
+                                  'Карта лояльности', style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Container(
-                    child: Stack(
-                      alignment: Alignment.bottomLeft,
-                      children: [
-                        Image.asset('assets/sale3.png'),
-                        Positioned(
-                          left: 220,
-                          top: 65,
-                          child: Row(
-                            children: [
-                              Container(
-                                width: 100,
-                                child: Column(
-                                  children: [
-                                    Text(
-                                        'Скидка на пасту', style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)
-                                    ),
-                                    Text(
-                                        '35%', style: TextStyle(fontSize: 32, color: Color.fromRGBO(8, 192, 105, 1), fontWeight: FontWeight.bold)
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Container(
+                  child: Stack(
+                    alignment: Alignment.bottomLeft,
+                    children: [
+                      Image.asset('assets/sale3.png'),
+                      Positioned(
+                        left: 220,
+                        top: 65,
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 100,
+                              child: Column(
+                                children: [
+                                  Text(
+                                      'Скидка на пасту', style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)
+                                  ),
+                                  Text(
+                                      '35%', style: TextStyle(fontSize: 32, color: Color.fromRGBO(8, 192, 105, 1), fontWeight: FontWeight.bold)
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),*/
+            ],
           ),
         )
       );

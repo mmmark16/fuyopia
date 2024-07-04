@@ -123,7 +123,7 @@ class _OrderPageState extends State<OrderPage> {
                               leading: GestureDetector(
                                 onTap: () {
                                   Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) => ReviewsWaiterPage()));
+                                      MaterialPageRoute(builder: (context) => ReviewsWaiterPage(workerName: 'Официант',)));
                                 },
                                 child: Container(
                                   width: 60,
