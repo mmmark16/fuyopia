@@ -32,7 +32,9 @@ class _CardOrderPageState extends State<CardOrderPage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(top: 64),
-                      child: Icon(Icons.arrow_back_ios_new),
+                      child: GestureDetector(
+                          onTap: (){Navigator.pop(context);},
+                          child:Icon(Icons.arrow_back_ios_new)),
                     ),
                     Container(
                       width: MediaQuery.of(context).size.width / 1.2,

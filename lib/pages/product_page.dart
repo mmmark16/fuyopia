@@ -243,8 +243,7 @@ class _ProductPageState extends State<ProductPage> {
                               builder: (BuildContext context) {
                                 return Container(
                                     width: MediaQuery.of(context).size.width,
-                                    height: MediaQuery.of(context).size.height -
-                                        MediaQuery.of(context).size.height / 8,
+height: MediaQuery.of(context).size.height-MediaQuery.of(context).size.height/8,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(16),
@@ -252,8 +251,10 @@ class _ProductPageState extends State<ProductPage> {
                                       color: Colors.white,
                                     ),
                                     child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment: CrossAxisAlignment.end,
                                       children: [
-                                        Container(
+                                        Expanded(child:Container(
                                           width:
                                               MediaQuery.of(context).size.width,
                                           decoration: BoxDecoration(
@@ -266,6 +267,7 @@ class _ProductPageState extends State<ProductPage> {
                                             child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
+                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
                                                 Center(
                                                   child: Container(
@@ -377,68 +379,57 @@ class _ProductPageState extends State<ProductPage> {
                                               ],
                                             ),
                                           ),
-                                        ),
+                                        )),
                                         Container(
-                                          width:
-                                              MediaQuery.of(context).size.width,
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height /
-                                              10,
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    right: 32),
-                                                child: GestureDetector(
-                                                  onTap: () {
-                                                    Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(
-                                                            builder:
-                                                                (context) =>
-                                                                    MyHomePage(
-                                                                      indexPage:
-                                                                          4,
-                                                                    )));
-                                                  },
-                                                  child: Container(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                            horizontal: 16),
-                                                    height: 60,
-                                                    decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.all(
-                                                              Radius.circular(
-                                                                  16)),
-                                                      border: Border.all(
-                                                          color: Color.fromRGBO(
-                                                              230, 220, 205, 1),
-                                                          width: 2),
-                                                      color: Colors.white,
-                                                    ),
-                                                    child: Center(
-                                                        child: Text('Корзина',
-                                                            style: TextStyle(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                                fontSize: 18,
-                                                                color: Color
-                                                                    .fromRGBO(
-                                                                        8,
-                                                                        192,
-                                                                        105,
-                                                                        1)))),
-                                                  ),
+
+
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                right: 32,top:12,bottom: 12),
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder:
+                                                            (context) =>
+                                                                MyHomePage(
+                                                                  indexPage:
+                                                                      4,
+                                                                )));
+                                              },
+                                              child: Container(
+                                                padding:
+                                                    EdgeInsets.symmetric(
+                                                        horizontal: 16),
+                                                width: MediaQuery.of(context).size.width/3,
+                                                height: 60,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(
+                                                              16)),
+                                                  border: Border.all(
+                                                      color: Color.fromRGBO(
+                                                          230, 220, 205, 1),
+                                                      width: 2),
+                                                  color: Colors.white,
                                                 ),
+                                                child: Center(
+                                                    child: Text('Корзина',
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold,
+                                                            fontSize: 18,
+                                                            color: Color
+                                                                .fromRGBO(
+                                                                    8,
+                                                                    192,
+                                                                    105,
+                                                                    1)))),
                                               ),
-                                            ],
+                                            ),
                                           ),
                                         ),
                                       ],

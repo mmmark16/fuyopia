@@ -291,9 +291,8 @@ class _PayForOrderState extends State<PayForOrder> {
                           Radius.circular(8),
                         ),
                         border: Border.all(color: Colors.white, width: 2)),
-                    child: Icon(
-                      Icons.arrow_back_ios_new,
-                      color: Colors.white,
+                    child: IconButton(icon:Icon(Icons.arrow_back_ios_new),
+                      color: Colors.white, onPressed: () {Navigator.pop(context);  },
                     ),
                   ),
                   GestureDetector(
