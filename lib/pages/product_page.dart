@@ -43,110 +43,108 @@ class _ProductPageState extends State<ProductPage> {
                           color: Colors.black,
                         )),
                   ),
-                  Stack(
-                    alignment: AlignmentDirectional.center,
-                      children: [
+                  Stack(alignment: AlignmentDirectional.center, children: [
                     SvgPicture.asset(
                       'assets/big_dish.svg',
                     ),
-                        Positioned(
-                          left: 200,
-                          top: 160,
-                          child: Container(
-                            child: Container(
-                              height: MediaQuery.of(context).size.height/7,
-                              child: Row(
-                                children: [
-                                  Align(
-                                    alignment: Alignment.bottomCenter,
-                                    child: GestureDetector(
-                                      onTap: (){
-                                        _isFavorite = ! _isFavorite;
-                                        setState(() {
-                                        });
-                                      },
-                                      child: Container(
-                                        width: 45,
-                                        height: 45,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                            BorderRadius.all(Radius.circular(12)),
-                                            color: TColors.accent),
-                                        child: _isFavorite == true ? Icon(
-                                          Icons.favorite,
-                                          color: Colors.white,
-                                        ) : Icon(
-                                          Icons.favorite_border,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
+                    Positioned(
+                      left: 200,
+                      top: 160,
+                      child: Container(
+                        child: Container(
+                          height: MediaQuery.of(context).size.height / 7,
+                          child: Row(
+                            children: [
+                              Align(
+                                alignment: Alignment.bottomCenter,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    _isFavorite = !_isFavorite;
+                                    setState(() {});
+                                  },
+                                  child: Container(
+                                    width: 45,
+                                    height: 45,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(12)),
+                                        color: TColors.accent),
+                                    child: _isFavorite == true
+                                        ? Icon(
+                                            Icons.favorite,
+                                            color: Colors.white,
+                                          )
+                                        : Icon(
+                                            Icons.favorite_border,
+                                            color: Colors.white,
+                                          ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 40),
-                                    child: Container(
-                                      width: 55,
-                                      height: 55,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                          BorderRadius.all(Radius.circular(12)),
-                                          color: TColors.surface),
-                                      child: Icon(
-                                        Icons.add,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          top: 300,
-                          child: Container(
-                            height: 40,
-                            width: 100,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(16),
                                 ),
-                                color: Color.fromRGBO(255, 226, 205, 1)),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                GestureDetector(
-                                    onTap: () {
-                                      if (_count == 1) {
-                                      } else {
-                                        _count = _count - 1;
-                                        setState(() {});
-                                      }
-                                    },
-                                    child: Icon(
-                                      Icons.remove,
-                                      color: Colors.black,
-                                    )),
-                                Text(_count.toString(),
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold)),
-                                GestureDetector(
-                                    onTap: () {
-                                      _count = _count + 1;
-                                      print(_count);
-                                      setState(() {});
-                                    },
-                                    child: Icon(
-                                      Icons.add,
-                                      color: Colors.black,
-                                    ))
-                              ],
-                            ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 40),
+                                child: Container(
+                                  width: 55,
+                                  height: 55,
+                                  decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(12)),
+                                      color: TColors.surface),
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 300,
+                      child: Container(
+                        height: 40,
+                        width: 100,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(16),
+                            ),
+                            color: Color.fromRGBO(255, 226, 205, 1)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            GestureDetector(
+                                onTap: () {
+                                  if (_count == 1) {
+                                  } else {
+                                    _count = _count - 1;
+                                    setState(() {});
+                                  }
+                                },
+                                child: Icon(
+                                  Icons.remove,
+                                  color: Colors.black,
+                                )),
+                            Text(_count.toString(),
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold)),
+                            GestureDetector(
+                                onTap: () {
+                                  _count = _count + 1;
+                                  print(_count);
+                                  setState(() {});
+                                },
+                                child: Icon(
+                                  Icons.add,
+                                  color: Colors.black,
+                                ))
+                          ],
+                        ),
+                      ),
+                    ),
                   ]),
-
                   Padding(
                     padding: const EdgeInsets.only(top: 24.0, bottom: 16),
                     child: Row(
@@ -247,7 +245,7 @@ class _ProductPageState extends State<ProductPage> {
                                 return Container(
                                     width: MediaQuery.of(context).size.width,
                                     height: MediaQuery.of(context).size.height -
-                                        MediaQuery.of(context).size.height / 6,
+                                        MediaQuery.of(context).size.height / 8,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(16),
@@ -389,6 +387,8 @@ class _ProductPageState extends State<ProductPage> {
                                                   .height /
                                               10,
                                           child: Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.end,
                                             children: [

@@ -26,11 +26,12 @@ class OrderSmallCard extends StatelessWidget {
             children: [
               Text(dishName, style: TextStyle(fontSize: 16,),),
               Text("999руб.", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Container(
+              Container(
+                width: MediaQuery.of(context).size.width/2,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
                       padding: const EdgeInsets.all(4),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -39,15 +40,12 @@ class OrderSmallCard extends StatelessWidget {
                       child: Center(
                         child: Text(
                           '320 ккал', style: TextStyle(
-                            fontSize: 13
+                            fontSize: 11
                         ),
                         ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Container(
+                    Container(
                       padding: const EdgeInsets.all(4),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -56,30 +54,30 @@ class OrderSmallCard extends StatelessWidget {
                       child: Center(
                         child: Text(
                           '120 грамм', style: TextStyle(
-                            fontSize: 13
+                            fontSize: 11
                         ),
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(4),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        border: Border.all(color: Color.fromRGBO(8, 192, 105, 1))
-                    ),
-                    child: Row(
-                      children: [
-                        Icon(Icons.star, color: Color.fromRGBO(239, 136, 41, 1),),
-                        Text(
-                          '5.0', style: TextStyle(
-                            fontSize: 13
-                        ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+                    Container(
+                      padding: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          border: Border.all(color: Color.fromRGBO(8, 192, 105, 1))
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(Icons.star, color: Color.fromRGBO(239, 136, 41, 1), size: 16,),
+                          Text(
+                            '5.0', style: TextStyle(
+                              fontSize: 11
+                          ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               )
             ],
           )

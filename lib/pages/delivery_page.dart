@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fuyopia/pages/profile_pages/profile_page.dart';
+
+import '../widget/avatar.dart';
+import '../widget/const.dart';
+import '../widget/delivery_card.dart';
 
 class DeliveryPage extends StatelessWidget {
   const DeliveryPage({super.key});
@@ -32,10 +37,19 @@ class DeliveryPage extends StatelessWidget {
               "8.5",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
-            CircleAvatar(
-              child: Icon(Icons.person),
-              radius: 24,
-            ),
+            GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ProfilePage()));
+                },
+                child: CustomAvatar(
+                  backColor: TColors.accent,
+                  width: 45,
+                  url: 'assets/no_avatar.png',
+                  name: "Дениска Биткоин",
+                )),
           ],
         ),
       ),
@@ -63,99 +77,19 @@ class DeliveryPage extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 32),
-              child: Container(
-                width: MediaQuery.of(context).size.width / 1.1,
-                height: 156,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
-                    color: Color.fromRGBO(12, 199, 8, 0.5)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 24),
-                      child: Text("delivery-club", style: TextStyle(
-                          fontSize: 18,
-                          color: Color.fromRGBO(12, 199, 8, 1)),),
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Image.asset("assets/delivery_logo.png"),
-                        Text("Доступно", style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black)),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 32),
-              child: Container(
-                width: MediaQuery.of(context).size.width / 1.1,
-                height: 156,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
-                    color: Color.fromRGBO(63, 63, 63, 0.5)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 24),
-                      child: Text("yandex-еда", style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.black),),
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Image.asset("assets/yandeks_logo.png"),
-                        Text("Недоступно", style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.white)),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 32),
-              child: Container(
-                width: MediaQuery.of(context).size.width / 1.1,
-                height: 156,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
-                    color: Color.fromRGBO(12, 199, 8, 0.5)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 24),
-                      child: Text("От ресторана", style: TextStyle(
-                          fontSize: 18,
-                          color: Color.fromRGBO(12, 199, 8, 1)),),
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Image.asset("assets/pwa_logo.png"),
-                        Text("Доступно", style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black)),
-                      ],
-                    ),
-                  ],
-                ),
+            Container(
+              height: MediaQuery.of(context).size.height/1.5,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  DeliveryCard(photoPath: 'assets/delivery_logo.png', deliveryName: 'delivery-club', available: 'Доступно',),
+                  DeliveryCard(photoPath: 'assets/yandeks_logo.png', deliveryName: 'yandex-еда', available: 'Недоступно',),
+                  DeliveryCard(photoPath: 'assets/pwa_logo.png', deliveryName: 'От ресторана', available: 'Доступно',),
+                ],
               ),
             ),
           ],
-        ),
-      ),
+        ),      ),
     );
   }
 }
