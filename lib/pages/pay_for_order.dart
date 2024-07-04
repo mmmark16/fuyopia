@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import '../widget/const.dart';
 import 'map_page.dart';
 import 'order_page.dart';
 
@@ -309,18 +310,31 @@ class _PayForOrderState extends State<PayForOrder> {
                                     color: Color.fromRGBO(0, 32, 96, 1),
                                   ),
                                   width: MediaQuery.of(context).size.width,
-                                  height: MediaQuery.of(context).size.height / 4,
+                                  height: MediaQuery.of(context).size.height / 3,
                                   child: Column(
                                     children: [
                                       Padding(
+                                        padding: const EdgeInsets.only(top: 16),
+                                        child: Container(
+                                          width: 60,
+                                          height: 4,
+                                          decoration: BoxDecoration(
+                                            color: TColors.secondary,
+                                            borderRadius: BorderRadius.circular(
+                                                defRadiusOther),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
                                         padding: const EdgeInsets.only(
-                                            top: 32, bottom: 16),
+                                            top: 32,),
                                         child: Container(
                                             width:
                                             MediaQuery.of(context).size.height /
-                                                4,
+                                                3,
                                             child: Text(
                                                 "Отсканируйте QR код выбранного столика",
+                                                textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                     fontWeight: FontWeight.bold,
                                                     fontSize: 16,
@@ -336,7 +350,7 @@ class _PayForOrderState extends State<PayForOrder> {
                                           child: Container(
                                             width: MediaQuery.of(context).size.width /
                                                 1.2,
-                                            height: 40,
+                                            height: 50,
                                             decoration: BoxDecoration(
                                                 borderRadius: BorderRadius.all(
                                                     Radius.circular(12)),
@@ -345,8 +359,7 @@ class _PayForOrderState extends State<PayForOrder> {
                                             child: Center(
                                               child: Text("Отсканировать",
                                                   style: TextStyle(
-                                                      fontSize: 20,
-                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 16,
                                                       color: Colors.white)),
                                             ),
                                           ),
