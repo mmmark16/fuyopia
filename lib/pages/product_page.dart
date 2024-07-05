@@ -244,6 +244,7 @@ class _ProductPageState extends State<ProductPage> {
                                 return Container(
                                     width: MediaQuery.of(context).size.width,
 height: MediaQuery.of(context).size.height-MediaQuery.of(context).size.height/8,
+                                    padding: EdgeInsets.only(bottom: 0),
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(16),
@@ -285,7 +286,7 @@ height: MediaQuery.of(context).size.height-MediaQuery.of(context).size.height/8,
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsets.only(
-                                                            top: 32,
+                                                            top: 16,
                                                             bottom: 16),
                                                     child: Text("Изменить",
                                                         style: TextStyle(
@@ -354,12 +355,12 @@ height: MediaQuery.of(context).size.height-MediaQuery.of(context).size.height/8,
                                                     Container(
                                                       padding:
                                                           EdgeInsets.all(16),
-                                                      height: 60,
+                                                      height: 50,
                                                       decoration: BoxDecoration(
                                                         borderRadius:
                                                             BorderRadius.all(
                                                                 Radius.circular(
-                                                                    16)),
+                                                                    20)),
                                                         color: Color.fromRGBO(
                                                             8, 192, 105, 1),
                                                       ),
@@ -370,7 +371,7 @@ height: MediaQuery.of(context).size.height-MediaQuery.of(context).size.height/8,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold,
-                                                                  fontSize: 18,
+                                                                  fontSize: 14,
                                                                   color: Colors
                                                                       .white))),
                                                     ),
@@ -383,51 +384,54 @@ height: MediaQuery.of(context).size.height-MediaQuery.of(context).size.height/8,
                                         Container(
 
 
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                right: 32,top:12,bottom: 12),
-                                            child: GestureDetector(
-                                              onTap: () {
-                                                Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                        builder:
-                                                            (context) =>
-                                                                MyHomePage(
-                                                                  indexPage:
-                                                                      4,
-                                                                )));
-                                              },
-                                              child: Container(
-                                                padding:
-                                                    EdgeInsets.symmetric(
-                                                        horizontal: 16),
-                                                width: MediaQuery.of(context).size.width/3,
-                                                height: 60,
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(
-                                                              16)),
-                                                  border: Border.all(
-                                                      color: Color.fromRGBO(
-                                                          230, 220, 205, 1),
-                                                      width: 2),
-                                                  color: Colors.white,
+                                          child: Align(
+                                            alignment: Alignment.centerRight,
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  right: 32,top:12,bottom: 12),
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder:
+                                                              (context) =>
+                                                                  MyHomePage(
+                                                                    indexPage:
+                                                                        4,
+                                                                  )));
+                                                },
+                                                child: Container(
+                                                  padding:
+                                                      EdgeInsets.symmetric(
+                                                          horizontal: 16),
+                                                  width: MediaQuery.of(context).size.width/3,
+                                                  height: 50,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(
+                                                                20)),
+                                                    border: Border.all(
+                                                        color: Color.fromRGBO(
+                                                            230, 220, 205, 1),
+                                                        width: 2),
+                                                    color: Colors.white,
+                                                  ),
+                                                  child: Center(
+                                                      child: Text('Корзина',
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontSize: 14,
+                                                              color: Color
+                                                                  .fromRGBO(
+                                                                      8,
+                                                                      192,
+                                                                      105,
+                                                                      1)))),
                                                 ),
-                                                child: Center(
-                                                    child: Text('Корзина',
-                                                        style: TextStyle(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold,
-                                                            fontSize: 18,
-                                                            color: Color
-                                                                .fromRGBO(
-                                                                    8,
-                                                                    192,
-                                                                    105,
-                                                                    1)))),
                                               ),
                                             ),
                                           ),
