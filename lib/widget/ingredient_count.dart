@@ -31,11 +31,11 @@ class _IngredientCountState extends State<IngredientCount> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 32),
+      padding: const EdgeInsets.only(bottom: 4),
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 16),
+            padding: const EdgeInsets.only(bottom: 12),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -49,8 +49,8 @@ class _IngredientCountState extends State<IngredientCount> {
                     });
                   },
                   child: Container(
-                    width: 50,
-                    height: 50,
+                    width: 35,
+                    height: 35,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(
                           Radius.circular(12),
@@ -79,8 +79,8 @@ class _IngredientCountState extends State<IngredientCount> {
                     });
                   },
                   child: Container(
-                    width: 50,
-                    height: 50,
+                    width: 35,
+                    height: 35,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(
                           Radius.circular(12),
